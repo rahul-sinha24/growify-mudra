@@ -65,9 +65,9 @@
       "settings": {
         "logo_position": "middle-left",
         "menu": "growify-menu",
-        "menu_type_desktop": "dropdown",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
-        "show_menu_hover": false,
+        "show_menu_hover": true,
         "overlay_header": false,
         "show_line_separator": true,
         "color_scheme": "scheme-1",
