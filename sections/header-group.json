@@ -46,6 +46,7 @@
       "blocks": {
         "image_block_byj7tw": {
           "type": "image_block",
+          "disabled": true,
           "settings": {
             "link_title_mega": "",
             "mega_image1": "shopify://shop_images/resize_col_3.jpg",
@@ -64,7 +65,7 @@
       "settings": {
         "logo_position": "middle-left",
         "menu": "growify-menu",
-        "menu_type_desktop": "mega",
+        "menu_type_desktop": "dropdown",
         "sticky_header_type": "on-scroll-up",
         "show_menu_hover": false,
         "overlay_header": false,
