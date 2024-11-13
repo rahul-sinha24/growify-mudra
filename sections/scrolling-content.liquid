@@ -1,0 +1,321 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background: {{ section.settings.background }};
+  }
+
+  #shopify-section-{{ section.id }}.scrolling_section .scrolling-content__text{
+        color: {{ section.settings.text_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    #shopify-section-{{ section.id }}.scrolling_section .scrolling-content__text{
+        font-size: {{ section.settings.text_font_size_desktop }}px;
+    }
+  }
+   @media(max-width: 749px){
+    #shopify-section-{{ section.id }}.scrolling_section .scrolling-content__text{
+        font-size: {{ section.settings.text_font_size_mobile }}px;
+    }
+   }
+{%- endstyle -%}
+
+{%- if section.blocks.size > 0 -%}
+  <style>
+    #shopify-section-{{ section.id }} {
+      font-size: clamp({{ section.settings.text_font_size_mobile }}px, calc({{ section.settings.text_font_size_mobile }}px + ({{ section.settings.text_font_size_desktop }} - {{ section.settings.text_font_size_mobile }}) * ((100vw - 375px) / (1400 - 375))), {{ section.settings.text_font_size_desktop }}px);
+    }
+  </style>
+
+  <div class="section-{{ section.id }}-padding gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}">
+    <marquee-text id="marquee-{{ section.id }}" class="scrolling-content">
+        <div class="scrolling-content__item">
+            {%- for block in section.blocks -%}
+            {%- case block.type -%}
+                {%- when 'image' -%}
+                {%- if block.settings.image -%}
+                    <div class="scrolling-content__image" {{ block.shopify_attributes }}>
+                    {{
+                    block.settings.image
+                    | image_url: width: 3200
+                    | image_tag:
+                        widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                        class: 'marquee-card__image'
+                    }}
+                    </div>
+                {%- endif -%}
+
+                {%- when 'text' -%}
+                {%- if block.settings.text != blank -%}
+                    <p class="scrolling-content__text {% if block.settings.outlined != blank %}text_outlined--{{ block.id }}{% endif %}" {{ block.shopify_attributes }}>
+                    {{- block.settings.text -}}
+                    </p>
+                {%- endif -%}
+            {%- endcase -%}
+            {%- endfor -%}
+        </div>
+        <div class="scrolling-content__item clone">
+            {%- for block in section.blocks -%}
+            {%- case block.type -%}
+                {%- when 'image' -%}
+                {%- if block.settings.image -%}
+                    <div class="scrolling-content__image" {{ block.shopify_attributes }}>
+                    {{
+                    block.settings.image
+                    | image_url: width: 3200
+                    | image_tag:
+                        widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                        class: 'marquee-card__image'
+                    }}
+                    </div>
+                {%- endif -%}
+
+                {%- when 'text' -%}
+                {%- if block.settings.text != blank -%}
+                    <p class="scrolling-content__text {% if block.settings.outlined != blank %}text_outlined--{{ block.id }}{% endif %}" {{ block.shopify_attributes }}>
+                    {{- block.settings.text -}}
+                    </p>
+                {%- endif -%}
+                {% style %}
+                   #marquee-{{ section.id }} .scrolling-content__item .text_outlined--{{ block.id }} {
+                      -webkit-text-fill-color: transparent;
+                      -webkit-text-stroke: 1px;
+                  }
+                {% endstyle %}
+            {%- endcase -%}
+            {%- endfor -%}
+        </div>
+    </marquee-text>
+
+  </div>
+{%- endif -%}
+
+{% style %}
+
+  #marquee-{{ section.id }} {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    display: flex;
+  }
+
+  #marquee-{{ section.id }} .scrolling-content__item {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marquee-{{ section.id }} {{ section.settings.scrolling_speed }}s linear infinite;
+  }
+
+  @keyframes marquee-{{ section.id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  #marquee-{{ section.id }} .scrolling-content__item .text_outlined--{{ block.id }} {
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px;
+  }
+{% endstyle %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var marquee = document.getElementById("marquee-{{ section.id }}");
+    var marqueeItems = marquee.querySelectorAll('.scrolling-content__item');
+    
+    var speed = {{ section.settings.scrolling_speed }};
+    var direction = '{{ section.settings.scroll_direction }}';
+    
+    // Adjust the speed of the animation
+    marqueeItems.forEach(function(item) {
+      item.style.animationDuration = speed + 's';
+    });
+
+    // Adjust the direction of the animation
+    if (direction === 'left') {
+      marqueeItems.forEach(function(item) {
+        item.style.animationDirection = 'normal';
+      });
+    } else if (direction === 'right') {
+      marqueeItems.forEach(function(item) {
+        item.style.animationDirection = 'reverse';
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Scrolling Content",
+  "class": "section scrolling_section",
+  "max_blocks": 10,
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "range",
+      "id": "scrolling_speed",
+      "min": 7,
+      "max": 20,
+      "step": 1,
+      "label": "t:sections.scrolling-content.settings.scrolling_speed.label",
+      "default": 10
+    },
+    {
+      "type": "select",
+      "id": "scroll_direction",
+      "label": "t:sections.scrolling-content.settings.scroll_direction.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.scrolling-content.settings.scroll_direction.options__1.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.scrolling-content.settings.scroll_direction.options__2.label"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.scrolling-content.settings.fonts.content"
+    },
+    {
+      "type": "range",
+      "id": "text_font_size_mobile",
+      "min": 10,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.scrolling-content.settings.text_font_size_mobile.label",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "text_font_size_desktop",
+      "min": 10,
+      "max": 110,
+      "step": 2,
+      "unit": "px",
+      "label": "t:sections.scrolling-content.settings.text_font_size_desktop.label",
+      "default": 96
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "t:sections.scrolling-content.settings.header.content"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "t:sections.scrolling-content.settings.background.label",
+      "default": "#fff8ed"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.scrolling-content.settings.text_color.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Content",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "t:sections.scrolling-content.blocks.text.settings.text.label",
+          "default": "Share something"
+        },
+        {
+          "type": "checkbox",
+          "id": "outlined",
+          "label": "t:sections.scrolling-content.blocks.text.settings.outlined.label",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "t:sections.scrolling-content.blocks.text.settings.header.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.scrolling-content.blocks.text.settings.image.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling Content",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "text": "Welcome to our shop"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "Discover our products",
+            "outlined": true
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "Choose perfect for you"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "Thanks shoping with us",
+            "outlined": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

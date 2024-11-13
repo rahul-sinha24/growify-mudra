@@ -1,0 +1,99 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": true,
+        "read_nore": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "blob",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": true,
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "testimonial_xewWxe": {
+      "type": "testimonial",
+      "blocks": {
+        "image_4Fczp6": {
+          "type": "image",
+          "settings": {
+            "heading": "Richard W.",
+            "text": "<p><em>More info about them could go here.</em></p>"
+          }
+        },
+        "image_dfRezN": {
+          "type": "image",
+          "settings": {
+            "heading": "Richard W.",
+            "text": "<p><em>More info about them could go here.</em></p>"
+          }
+        },
+        "image_UYD7ap": {
+          "type": "image",
+          "settings": {
+            "heading": "Richard W.",
+            "text": "<p><em>More info about them could go here.</em></p>"
+          }
+        },
+        "image_bBnrQD": {
+          "type": "image",
+          "settings": {
+            "heading": "Richard W.",
+            "text": "<p><em>More info about them could go here.</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "image_4Fczp6",
+        "image_dfRezN",
+        "image_UYD7ap",
+        "image_bBnrQD"
+      ],
+      "settings": {
+        "show_border": true,
+        "title": "What's our clients say",
+        "enable_images": true,
+        "crop_shape": "circle",
+        "card_alignment": "center",
+        "card_text": "rgba(0,0,0,1)",
+        "card_background": "rgba(0,0,0,0)",
+        "width": "standard",
+        "columns_desktop": 3,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "testimonial_xewWxe"
+  ]
+}

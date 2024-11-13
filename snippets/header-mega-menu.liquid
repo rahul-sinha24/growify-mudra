@@ -1,0 +1,201 @@
+{% comment %}
+  Renders a megamenu for the header.
+
+  Usage:
+  {% render 'header-mega-menu' %}
+{% endcomment %}
+
+{% assign block_mega_menu = false %}
+
+<nav class="header__inline-menu {% if block_mega_menu %}mega_menu_images_on site-nav--is-megamenu{% endif %}">
+  <div class="list-menu list-menu--inline" role="list">
+    {% for link in section.settings.menu.links %}
+      {% assign link_has_mega_block = false %}
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'image_block' %}
+            {% if block.settings.link_title_mega contains link.title %}
+              {% assign link_has_mega_block = true %}
+              {% assign mega_image1 = block.settings.mega_image1 %}
+              {% assign mega_image2 = block.settings.mega_image2 %}
+              {% assign mega_image3 = block.settings.mega_image3 %}
+              {% assign mega_img1_title = block.settings.mega_img1_title %}
+              {% assign mega_img2_title = block.settings.mega_img2_title %}
+              {% assign mega_img3_title = block.settings.mega_img3_title %}
+              {% assign mega_img1_link = block.settings.mega_img1_link %}
+              {% assign mega_img2_link = block.settings.mega_img2_link %}
+              {% assign mega_img3_link = block.settings.mega_img3_link %}
+              {% assign block_mega_menu = true %}
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+      {% if link_has_mega_block %}
+        <div class="menus_block--{{ link.title }} mega_menu_images_only_outer">
+          <header-menu>
+            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+              <summary id="HeaderMenu-{{ link.handle }}">
+                <span>
+                  <a href="{{ link.url }}" class="header__menu-item list-menu__item link focus-inset">
+                    {{ link.title | escape }}
+                  </a>
+                </span>
+                {% render 'icon-caret' %}
+              </summary>
+              <div
+                id="MegaMenu-Content-{{ forloop.index }}"
+                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                tabindex="-1"
+              >
+                <div
+                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                  role="list"
+                >
+                  {% if block_mega_menu %}
+                    <div class="menu_list_blocks with_mega">
+                  {% endif %}
+                  {% for childlink in link.links %}
+                    <div class="child_block menu_list">
+                      <a
+                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                        href="{{ childlink.url }}"
+                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                        {% if childlink.current %}
+                          aria-current="page"
+                        {% endif %}
+                      >
+                        {{ childlink.title | escape }}
+                      </a>
+                      {% if childlink.links != blank %}
+                        <ul class="list-unstyled" role="list">
+                          {% for grandchildlink in childlink.links %}
+                            <li>
+                              <a
+                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                href="{{ grandchildlink.url }}"
+                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                {% if grandchildlink.current %}
+                                  aria-current="page"
+                                {% endif %}
+                              >
+                                {{ grandchildlink.title | escape }}
+                              </a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+
+                  {% if block_mega_menu %}
+                    </div>
+                  {% endif %}
+
+                  {% if block_mega_menu %}
+                    <div class="child_block mega_images">
+                      {% if mega_image1 != blank %}
+                        <div
+                          class="child_block_mega_images"
+                          style="padding-bottom: {{ 1 | divided_by: mega_image1.aspect_ratio | times: 100 }}%; position: relative;"
+                        >
+                          <span style="display:none">{{ link.title }}</span>
+                          <div
+                            class="mega_image"
+                            style="padding-bottom: {{ 1 | divided_by: mega_image1.aspect_ratio | times: 100 }}%;"
+                          >
+                            {% assign widths = '198, 432, 642, 900, 1284, 1800' %}
+                            {{
+                              mega_image1
+                              | image_url: width: 1500
+                              | image_tag: widths: widths, fetchpriority: fetch_priority
+                            }}
+                          </div>
+                          {% if mega_img1_title != blank %}
+                            <div class="mega_title">
+                              {{ mega_img1_title }}
+                            </div>
+                          {% endif %}
+                          {% if mega_img1_link != blank %}
+                            <a href="{{ mega_img1_link }}" class="floating_link"></a>
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                      {% if mega_image2 != blank %}
+                        <div
+                          class="child_block_mega_images"
+                          style="padding-bottom: {{ 1 | divided_by: mega_image2.aspect_ratio | times: 100 }}%; position: relative;"
+                        >
+                          <span style="display:none">{{ link.title }}</span>
+                          <div
+                            class="mega_image"
+                            style="padding-bottom: {{ 1 | divided_by: mega_image2.aspect_ratio | times: 100 }}%;"
+                          >
+                            {% assign widths = '198, 432, 642, 900, 1284, 1800' %}
+                            {{
+                              mega_image2
+                              | image_url: width: 1500
+                              | image_tag: widths: widths, fetchpriority: fetch_priority
+                            }}
+                          </div>
+                          {% if mega_img2_title != blank %}
+                            <div class="mega_title">
+                              {{ mega_img2_title }}
+                            </div>
+                          {% endif %}
+                          {% if mega_img2_link != blank %}
+                            <a href="{{ mega_img2_link }}" class="floating_link"></a>
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                      {% if mega_image3 != blank %}
+                        <div
+                          class="child_block_mega_images"
+                          style="padding-bottom: {{ 1 | divided_by: mega_image3.aspect_ratio | times: 100 }}%; position: relative;"
+                        >
+                          <span style="display:none">{{ link.title }}</span>
+                          <div
+                            class="mega_image"
+                            style="padding-bottom: {{ 1 | divided_by: mega_image3.aspect_ratio | times: 100 }}%;"
+                          >
+                            {% assign widths = '198, 432, 642, 900, 1284, 1800' %}
+                            {{
+                              mega_image3
+                              | image_url: width: 1500
+                              | image_tag: widths: widths, fetchpriority: fetch_priority
+                            }}
+                          </div>
+                          {% if mega_img3_title != blank %}
+                            <div class="mega_title">
+                              {{ mega_img3_title }}
+                            </div>
+                            {% if mega_img3_link != blank %}
+                              <a href="{{ mega_img3_link }}" class="floating_link"></a>
+                            {% endif %}
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </details>
+          </header-menu>
+        </div>
+      {% else %}
+        <li class="menus_block--{{ link.title }}">
+          <a
+            id="HeaderMenu-{{ link.handle }}"
+            href="{{ link.url }}"
+            class="header__menu-item list-menu__item link link--text focus-inset"
+            {% if link.current %}
+              aria-current="page"
+            {% endif %}
+          >
+            <span>
+              {{ link.title | escape }}
+            </span>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </div>
+</nav>

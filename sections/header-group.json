@@ -1,0 +1,88 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to Mudra theme",
+            "link": ""
+          }
+        },
+        "announcement_7wQERg": {
+          "type": "announcement",
+          "settings": {
+            "text": "Shop all new arrivals",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0",
+        "announcement_7wQERg"
+      ],
+      "settings": {
+        "color_scheme": "scheme-4",
+        "show_line_separator": true,
+        "auto_rotate": true,
+        "no_arrow": true,
+        "change_slides_speed": 5
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "image_block_byj7tw": {
+          "type": "image_block",
+          "settings": {
+            "link_title_mega": "",
+            "mega_image1": "shopify://shop_images/resize_col_3.jpg",
+            "mega_img1_title": "BRIDE",
+            "mega_img1_link": "",
+            "mega_img2_title": "",
+            "mega_img2_link": "",
+            "mega_img3_title": "",
+            "mega_img3_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_block_byj7tw"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_menu_hover": false,
+        "overlay_header": false,
+        "show_line_separator": true,
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "sticky_menu_color": "#121212",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

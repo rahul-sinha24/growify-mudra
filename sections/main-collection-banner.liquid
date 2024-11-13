@@ -1,0 +1,256 @@
+{% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+{{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  @media screen and (max-width: 749px) {
+    .collection-hero--with-image .collection-hero__inner {
+      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
+    }
+  }
+  @media screen and (max-width: 749px) {
+    {% if section.settings.show_collection_image and collection.image %}
+    .collection-hero__image-container {
+        padding-bottom: {{ 100 | divided_by: collection.image.aspect_ratio }}%;
+        height: 0;
+    }
+    .collection-hero--with-image .collection-hero__text-wrapper {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      z-index: 99;
+    }
+    .collection-hero__inner {
+      position: relative;
+    }
+    
+    .collection-hero__text-wrapper {
+      background: #ffffff;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      {% if collection.description != blank %}
+        box-shadow: 1px 0px 10px 10px #00000008;
+        margin-top: -100px;
+        margin-bottom: 1rem;
+      {% endif %}
+      position: relative;
+    }
+    
+  {% endif %}
+    .collection-hero__image-container {
+        padding-bottom: {{ 100 | divided_by: section.settings.mobile_image.aspect_ratio }}%;
+        height: 0;
+    }
+  }
+  @media screen and (min-width: 750px) {
+    {% if section.settings.show_collection_image and collection.image %}
+      .collection-hero__image-container {
+          flex: 1 0 70%;
+          padding-bottom: {{ 100 | divided_by: collection.image.aspect_ratio }}%;
+          height: 0;
+      }
+    {% endif %}
+    .collection-hero__image-container {
+        padding-bottom: {{ 100 | divided_by: section.settings.desktop_image.aspect_ratio }}%;
+        height: 0;
+    }
+  }
+  @media (max-width: 998px){
+    .collection-hero__text-wrapper {
+      background: #ffffff;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      {% if collection.description != blank %}
+        box-shadow: 1px 0px 10px 10px #00000008;
+        margin-bottom: 1rem;
+      {% endif %}
+      margin-top: 0px;
+      position: relative;
+    }
+  }
+  @media (min-width: 999px){
+    .collection-hero__text-wrapper {
+      background: #ffffff;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+      {% if collection.description != blank %}
+        box-shadow: 1px 0px 10px 10px #00000008;
+        margin-top: -100px;
+        margin-bottom: 2rem;
+      {% endif %}
+      position: relative;
+    }
+  }
+  {% unless section.settings.show_collection_image and collection.image %}
+  .collection-hero__title {
+    text-align: center;
+  }
+  {% endunless %}
+{%- endstyle -%}
+
+<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+  <div class="collection-hero__inner {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+
+    {%- if section.settings.show_collection_image and collection.image -%}
+      <div class="collection-hero__image-container media gradient">
+        <img
+          srcset="
+            {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+            {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {{ collection.image | image_url }} {{ collection.image.width }}w
+          "
+          src="{{ collection.image | image_url: width: 1750 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+          alt=""
+          width="{{ collection.image.width }}"
+          height="{{ collection.image.height }}"
+        >
+      </div>
+    {%- endif -%}
+    {%- if section.settings.show_collection_image and section.settings.desktop_image != blank or section.settings.mobile_image != blank -%}
+      <div class="collection-hero__image-container media {% if section.settings.mobile_image != blank %}small-hide{% endif %} col_desktop_image gradient">
+        <img
+          srcset="
+            {%- if section.settings.desktop_image.width >= 750 -%}{{ section.settings.desktop_image | image_url: width: 1500 }} 750w,{%- endif -%}
+            {%- if section.settings.desktop_image.width >= 1070 -%}{{ section.settings.desktop_image | image_url: width: 1600 }} 1070w,{%- endif -%}
+            {%- if section.settings.desktop_image.width >= 1500 -%}{{ section.settings.desktop_image | image_url: width: 2500 }} 1500w,{%- endif -%}
+            {{ section.settings.desktop_image | image_url }} {{ section.settings.desktop_image.width }}w
+          "
+          src="{{ section.settings.desktop_image | image_url: width: 1750 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+          alt=""
+          width="{{ section.settings.desktop_image.width }}"
+          height="{{ section.settings.desktop_image.height }}"
+        >
+      </div>
+      {% if section.settings.mobile_image != blank %}
+      <div class="collection-hero__image-container media hide--lap-up col_mobile_image gradient">
+        <img
+          srcset="
+            {%- if section.settings.mobile_image.width >= 165 -%}{{ section.settings.mobile_image | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if section.settings.mobile_image.width >= 360 -%}{{ section.settings.mobile_image | image_url: width: 360 }} 360w,{%- endif -%}
+            {%- if section.settings.mobile_image.width >= 535 -%}{{ section.settings.mobile_image | image_url: width: 535 }} 535w,{%- endif -%}
+            {%- if section.settings.mobile_image.width >= 750 -%}{{ section.settings.mobile_image | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if section.settings.mobile_image.width >= 1070 -%}{{ section.settings.mobile_image | image_url: width: 1070 }} 1070w,{%- endif -%}
+            {%- if section.settings.mobile_image.width >= 1500 -%}{{ section.settings.mobile_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {{ section.settings.mobile_image | image_url }} {{ section.settings.mobile_image.width }}w
+          "
+          src="{{ section.settings.mobile_image | image_url: width: 750 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+          alt=""
+          width="{{ section.settings.mobile_image.width }}"
+          height="{{ section.settings.mobile_image.height }}"
+        >
+      </div>
+      {% endif %}
+    {% endif %}
+
+    <div class="collection-hero__text-wrapper">
+      <h2 class="collection-hero__title">
+        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+        {{- collection.title | escape -}}
+      </h2>
+
+      {%- if section.settings.show_collection_description -%}
+        <div class="collection-hero__description rte {% if section.settings.read_nore != blank %}read_more_content{% endif %}">
+          {{ collection.description }}
+        </div>
+        {% if section.settings.read_nore != blank %}
+          <div class="link readmore_collection_desscription">Read More</div>
+        {% endif %}
+      {%- endif -%}
+    </div>
+    
+  </div>
+</div>
+
+{% if section.settings.read_nore != blank %}
+  {% style %}
+    #shopify-section-{{ section.id }}.collection_banner .collection-hero__description.rte.read_more_content p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+    }
+    #shopify-section-{{ section.id }}.collection_banner .collection-hero__description.read_more_content.expanded p{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: none;
+      -webkit-box-orient: vertical;
+    }
+    .link.readmore_collection_desscription {
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+    }
+  {% endstyle %}
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const readMoreBtn = document.querySelector(".readmore_collection_desscription");
+    const collectionDescription = document.querySelector(".read_more_content");
+
+    readMoreBtn.addEventListener("click", function() {
+        collectionDescription.classList.toggle("expanded");
+        
+        if (collectionDescription.classList.contains("expanded")) {
+            readMoreBtn.textContent = "Show Less";
+        } else {
+            readMoreBtn.textContent = "Read More";
+        }
+      });
+    });
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "t:sections.main-collection-banner.name",
+  "class": "section collection_banner",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-collection-banner.settings.paragraph.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_description",
+      "default": true,
+      "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_image",
+      "default": true,
+      "label": "t:sections.main-collection-banner.settings.show_collection_image.label",
+      "info": "t:sections.main-collection-banner.settings.show_collection_image.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "read_nore",
+      "label": "Read More button",
+      "info": "It will show after 4 lines"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    }
+  ]
+}
+{% endschema %}
