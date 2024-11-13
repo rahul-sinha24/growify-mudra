@@ -46,9 +46,8 @@
       "blocks": {
         "image_block_byj7tw": {
           "type": "image_block",
-          "disabled": true,
           "settings": {
-            "link_title_mega": "",
+            "link_title_mega": "BRIDE",
             "mega_image1": "shopify://shop_images/resize_col_3.jpg",
             "mega_img1_title": "BRIDE",
             "mega_img1_link": "",
