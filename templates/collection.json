@@ -37,10 +37,63 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "testimonial_V39hmm": {
+      "type": "testimonial",
+      "blocks": {
+        "testimonial_VnXwWV": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Richard W.",
+            "text": "<p><em>More info about them could go here.</em></p>"
+          }
+        },
+        "testimonial_Y8qqUg": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Richard W.",
+            "text": "<p><em>More info about them could go here.</em></p>"
+          }
+        },
+        "testimonial_TzaXWN": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Richard W.",
+            "text": "<p><em>More info about them could go here.</em></p>"
+          }
+        },
+        "testimonial_iKtenD": {
+          "type": "testimonial",
+          "settings": {
+            "heading": "Richard W.",
+            "text": "<p><em>More info about them could go here.</em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_VnXwWV",
+        "testimonial_Y8qqUg",
+        "testimonial_TzaXWN",
+        "testimonial_iKtenD"
+      ],
+      "settings": {
+        "show_border": true,
+        "title": "What's our clients say",
+        "enable_images": true,
+        "crop_shape": "circle",
+        "card_alignment": "center",
+        "card_text": "rgba(0,0,0,1)",
+        "card_background": "rgba(0,0,0,0)",
+        "width": "standard",
+        "columns_desktop": 3,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
     }
   },
   "order": [
     "banner",
-    "product-grid"
+    "product-grid",
+    "testimonial_V39hmm"
   ]
 }
