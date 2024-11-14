@@ -49,7 +49,7 @@ menu-drawer > details[open] > summary::before {
 
 .js details[open] > .menu-drawer,
 .js details[open] > .menu-drawer__submenu {
-  transition: transform var(--duration-default) ease, visibility var(--duration-default) ease;
+  transition: height var(--duration-default) ease, visibility var(--duration-default) ease;
 }
 
 .no-js details[open] > .menu-drawer,
@@ -57,10 +57,24 @@ menu-drawer > details[open] > summary::before {
 details[open].menu-opening > .menu-drawer__submenu {
   transform: translateX(0);
   visibility: visible;
+  height: fit-content;
+}
+
+.menu-drawer__inner-submenu ul.menu-drawer__menu.list-menu li summary, .menu-drawer__inner-submenu ul.menu-drawer__menu.list-menu li a {
+    font-size: 14px;
 }
 
 .js .menu-drawer__navigation .submenu-open {
-  visibility: hidden; /* hide menus from screen readers when hidden by submenu */
+  visibility: visible; /* hide menus from screen readers when hidden by submenu */
+}
+
+div#childlink-categories ul.menu-drawer__menu.list-menu li a {
+    padding: 1rem 3rem;
+    font-size: 14px;
+}
+
+div#childlink-categories ul.menu-drawer__menu.list-menu {
+    padding-left: 1rem;
 }
 
 @media screen and (min-width: 750px) {
@@ -76,9 +90,19 @@ details[open].menu-opening > .menu-drawer__submenu {
   }
 }
 
+.js details[open].menu-opening>.menu-drawer {
+    transform: translate(0);
+    visibility: visible;
+    height: fit-content;
+}
+
 .menu-drawer__inner-container {
   position: relative;
-  height: 100%;
+  height: 82vh;
+}
+
+div#childlink-collections ul.menu-drawer__menu.list-menu {
+    padding-left: 2rem;
 }
 
 .menu-drawer__navigation-container {
@@ -167,14 +191,16 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .js .menu-drawer__submenu {
-  position: absolute;
-  top: 0;
+  position: relative;
+  top: unset;
   width: 100%;
-  bottom: 0;
-  left: 0;
+  max-width: 100%;
+  bottom: unset;
+  left: unset;
+  height: 0;
   background-color: rgb(var(--color-background));
   z-index: 1;
-  transform: translateX(100%);
+  transform: none;
   visibility: hidden;
 }
 
@@ -183,7 +209,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 .menu-drawer__close-button {
-  margin-top: 1.5rem;
+  /* margin-top: 1.5rem;
   padding: 1.2rem 2.6rem 1.2rem 3rem;
   text-decoration: none;
   display: flex;
@@ -193,7 +219,8 @@ details[open].menu-opening > .menu-drawer__submenu {
   background-color: transparent;
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
-  text-align: left;
+  text-align: left; */
+  display: none;
 }
 
 .no-js .menu-drawer__close-button {
