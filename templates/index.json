@@ -26,7 +26,7 @@
             "button_style_secondary": false,
             "box_align": "bottom-right",
             "text_alignment": "right",
-            "image_overlay_opacity": 30,
+            "image_overlay_opacity": 0,
             "color_scheme": "",
             "text_alignment_mobile": "center"
           }
@@ -991,7 +991,7 @@
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.</p>",
             "link_label": "",
             "link": "",
-            "block_color": "rgba(255,255,255,1)"
+            "block_color": "#ffffff"
           }
         },
         "card_qXGXxF": {
@@ -1001,7 +1001,7 @@
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.</p>",
             "link_label": "",
             "link": "",
-            "block_color": "rgba(255,255,255,1)"
+            "block_color": "#ffffff"
           }
         },
         "card_RnJqjX": {
@@ -1011,7 +1011,7 @@
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.</p>",
             "link_label": "",
             "link": "",
-            "block_color": "rgba(255,255,255,1)"
+            "block_color": "#ffffff"
           }
         },
         "card_UGnfAg": {
@@ -1021,7 +1021,7 @@
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.</p>",
             "link_label": "",
             "link": "",
-            "block_color": "rgba(255,255,255,1)"
+            "block_color": "#ffffff"
           }
         }
       },
