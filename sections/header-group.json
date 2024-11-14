@@ -49,7 +49,7 @@
           "settings": {
             "link_title_mega": "BRIDE",
             "mega_image1": "shopify://shop_images/resize_col_3.jpg",
-            "mega_img1_title": "BRIDE",
+            "mega_img1_title": "",
             "mega_img1_link": "",
             "mega_img2_title": "",
             "mega_img2_link": "",
@@ -68,6 +68,7 @@
         "sticky_header_type": "on-scroll-up",
         "show_menu_hover": true,
         "overlay_header": false,
+        "overlay_header_color": false,
         "show_line_separator": true,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",
