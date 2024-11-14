@@ -108,6 +108,10 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  .menu_list_blocks.with_mega {
+    gap: 2rem;
+    display: flex;
+  }
 {%- endstyle -%}
 
 <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
@@ -141,7 +145,7 @@
     endif
   endfor
 -%}
-<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper {% if section.settings.overlay_header_color != blank %}overlay_color{% endif %} color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -211,6 +215,7 @@
       {%- endif -%}
     {%- endif -%}
 
+    
     {%- liquid
       if section.settings.menu != blank
         if section.settings.menu_type_desktop == 'dropdown'
@@ -226,25 +231,44 @@
         <h1 class="header__heading">
       {%- endif -%}
           <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+            {%- if settings.desktop_logo != blank or settings.sticky_logo != blank -%}
+              <div class="header__heading-logo-wrapper {% if section.settings.sticky_header_type == 'on-scroll-up' and settings.sticky_logo != blank %}hide_on_scroll{% endif %}">
+                {%- assign logo_alt = settings.desktop_logo.alt | default: shop.name | escape -%}
                 {% capture sizes %}(min-width: 750px) {{ settings.logo_width }}px, 50vw{% endcapture %}
                 {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
+                 
+                
+                {{ settings.desktop_logo | image_url: width: 600 | image_tag:
                   class: 'header__heading-logo',
                   widths: widths,
-                  height: logo_height,
+                  height: 'auto',
                   width: settings.logo_width,
                   alt: logo_alt,
                   sizes: sizes,
                   preload: true
                 }}
               </div>
+              
             {%- else -%}
               <span class="h2">{{ shop.name }}</span>
             {%- endif -%}
+            {% if section.settings.sticky_header_type == 'on-scroll-up' and settings.sticky_logo != blank %}
+                <div class="header__heading-logo-wrapper visible_on_scroll" style="display: none;">
+                  {%- assign logo_alt = settings.sticky_logo.alt | default: shop.name | escape -%}
+                  {% capture sizes %}(min-width: 750px) {{ settings.logo_width_sticky }}px, 50vw{% endcapture %}
+                  {% capture widths %}{{ settings.logo_width_sticky }}, {{ settings.logo_width_sticky | times: 1.5 | round }}, {{ settings.logo_width_sticky | times: 2 }}{% endcapture %}
+                 
+                  {{ settings.sticky_logo | image_url: width: 600 | image_tag:
+                    class: 'header__heading-logo sticky_logo',
+                    widths: widths,
+                    height: 'auto',
+                    width: settings.logo_width_sticky,
+                    alt: logo_alt,
+                    sizes: sizes,
+                    preload: true
+                  }}
+                </div>
+              {% endif %}
           </a>
       {%- if request.page_type == 'index' -%}
         </h1>
@@ -351,8 +375,13 @@
           </div>
         {%- endif -%}
       </a>
+      
     </div>
   </header>
+  {% if section.settings.overlay_header_color != blank %}
+    <div class="overlay_header_background">
+    </div>
+  {% endif %}
 </{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
 
@@ -665,6 +694,7 @@
 
 {% if section.settings.show_menu_hover != blank %}
 <script>
+if (window.matchMedia('(min-width: 768px)').matches) {
 if (!navigator.userAgent.match(/Mobile|Windows Phone|Lumia|Android|webOS|iPhone|iPod|Blackberry|PlayBook|BB10|Opera Mini|\bCrMo\/|Opera Mobi|Tablet|iPad/i)) {
   const summaries = document.querySelectorAll('[id^="Details-"] summary');
 
@@ -710,6 +740,7 @@ if (!navigator.userAgent.match(/Mobile|Windows Phone|Lumia|Android|webOS|iPhone|
       details.removeAttribute('open');
     });
   }
+}
 }
 </script>
 {% endif %}
@@ -802,14 +833,19 @@ if (!navigator.userAgent.match(/Mobile|Windows Phone|Lumia|Android|webOS|iPhone|
       "default": false,
       "label": "t:sections.header.settings.show_menu_hover.label"
     },
-    
-     {
+    {
       "type": "checkbox",
       "id": "overlay_header",
       "default": false,
       "label": "t:sections.header.settings.overlay_header.label"
     },
-     {
+    {
+      "type": "checkbox",
+      "id": "overlay_header_color",
+      "default": false,
+      "label": "t:sections.header.settings.overlay_header_color.label"
+    },
+    {
       "type": "checkbox",
       "id": "show_line_separator",
       "default": true,
@@ -930,7 +966,7 @@ if (!navigator.userAgent.match(/Mobile|Windows Phone|Lumia|Android|webOS|iPhone|
         {
           "type": "text",
           "id": "link_title_mega",
-          "label": "Mega link title",
+          "label": "t:sections.header.blocks.image_block.settings.link_title_mega.label",
           "default": "Discover"
         },
         {
