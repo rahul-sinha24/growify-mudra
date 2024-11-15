@@ -1,9 +1,57 @@
 {{ 'component-shop-the-look.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'flickity.css' | asset_url | stylesheet_tag }}
 
+<div class="color-{{ section.settings.color_scheme }} isolate gradient">
+  <div
+    class="shop-the-look section-{{ section.id }}-padding{% if section.settings.full_width %} shop-the-look--full-width{% endif %}"
+  ></div>
+</div>
 {% schema %}
 {
   "name": "Section name",
-  "settings": []
+  "tag": "section",
+  "class": "section shop_the_look",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Featured collection",
+      "label": "t:sections.featured-collection.settings.title.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "content",
+      "label": "t:sections.featured-collection.settings.content.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "t:sections.featured-collection.settings.description.label"
+    }
+  ]
 }
 {% endschema %}
