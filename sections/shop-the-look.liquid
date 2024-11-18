@@ -29,19 +29,19 @@
 
   <div class="hotspots-wrapper shop-the-look_item">
      {% for block in section.blocks %}
-  {% if section.settings.desktop_image and section.settings.desktop_image.width and section.settings.desktop_image.height %}
-    <div class="shop-the-look_image">
-      <img
-        src="{{ section.settings.desktop_image | image_url: width: 1750 }}"
-        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
-        alt=""
-        width="{{ section.settings.desktop_image.width }}"
-        height="{{ section.settings.desktop_image.height }}"
-      >
-    </div>
-  {% else %}
-    <p>No image available for this block.</p>
-  {% endif %}
+          {% if section.settings.desktop_image != blank %}
+            <div class="shop-the-look_image">
+              <img
+                src="{{ section.settings.desktop_image | image_url: width: 1750 }}"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+                alt=""
+                width="100%"
+                height="auto"
+              >
+            </div>
+          {% else %}
+        <p>No image available for this block.</p>
+      {% endif %}
 {% endfor %}
 
   </div>
