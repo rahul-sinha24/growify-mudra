@@ -1043,6 +1043,17 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "shop_the_look_regj6m": {
+      "type": "shop-the-look",
+      "settings": {
+        "title": "Featured collection",
+        "content": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body"
+      }
     }
   },
   "order": [
@@ -1064,6 +1075,7 @@
     "multicolumn_mNYqQH",
     "image_with_text_TUCUTD",
     "button_blocks_UYRbxM",
-    "zoom_cards_6U3GhH"
+    "zoom_cards_6U3GhH",
+    "shop_the_look_regj6m"
   ]
 }
