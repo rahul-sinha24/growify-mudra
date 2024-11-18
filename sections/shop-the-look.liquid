@@ -32,8 +32,8 @@
           
     <div class="shop-the-look_image">
              {% assign img = block.settings.image %}
-             {% if block.settings.image != blank %}
-                    {{
+             {% if img != blank %}
+                    {{ 
                       img
                       | image_url: width: 3200
                       | image_tag:
@@ -43,6 +43,8 @@
               {% endif %}
        
      </div>
+
+       
          
 {% endfor %}
 
