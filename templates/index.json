@@ -1054,25 +1054,25 @@
             "featured_product": "aabis"
           }
         },
-        "product_wUzyaE": {
+        "product_qTnnmV": {
           "type": "product",
-          "disabled": true,
           "settings": {
-            "featured_product": ""
+            "image": "shopify://shop_images/resize_col_3.jpg",
+            "featured_product": "aabis"
           }
         },
-        "product_ydHrD3": {
+        "product_pMJDKe": {
           "type": "product",
-          "disabled": true,
           "settings": {
-            "featured_product": ""
+            "image": "shopify://shop_images/resize_col_3.jpg",
+            "featured_product": "aabis"
           }
         }
       },
       "block_order": [
         "product_TRqbzW",
-        "product_wUzyaE",
-        "product_ydHrD3"
+        "product_qTnnmV",
+        "product_pMJDKe"
       ],
       "settings": {
         "title": "Featured collection",
