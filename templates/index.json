@@ -1050,7 +1050,7 @@
         "product_TRqbzW": {
           "type": "product",
           "settings": {
-            "desktop_image": "shopify://shop_images/resize_col.jpg",
+            "image": "shopify://shop_images/resize_col_3.jpg",
             "featured_product": "aabis"
           }
         },
