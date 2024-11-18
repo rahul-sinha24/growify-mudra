@@ -1046,6 +1046,32 @@
     },
     "shop_the_look_regj6m": {
       "type": "shop-the-look",
+      "blocks": {
+        "product_TRqbzW": {
+          "type": "product",
+          "settings": {
+            "desktop_image": "shopify://shop_images/resize_col.jpg",
+            "featured_product": ""
+          }
+        },
+        "product_wUzyaE": {
+          "type": "product",
+          "settings": {
+            "featured_product": ""
+          }
+        },
+        "product_ydHrD3": {
+          "type": "product",
+          "settings": {
+            "featured_product": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_TRqbzW",
+        "product_wUzyaE",
+        "product_ydHrD3"
+      ],
       "settings": {
         "title": "Featured collection",
         "content": "",
