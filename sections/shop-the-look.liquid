@@ -30,7 +30,7 @@
   <div class="hotspots-wrapper shop-the-look_item">
      {% for block in section.blocks %}
           
-            <div class="shop-the-look_image">
+    <div class="shop-the-look_image">
              {% assign img = block.settings.featured_image %}
              {% if block.settings.featured_image != blank %}
                     {{
@@ -44,7 +44,7 @@
                     {{ 'image' | placeholder_svg_tag: 'zoom_placeholder-svg' }}
               {% endif %}
        
-            </div>
+     </div>
          
 {% endfor %}
 
