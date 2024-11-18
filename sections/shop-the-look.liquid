@@ -34,7 +34,7 @@
                
              {% if block.settings.image != blank %}
                     {{
-                      block.settings.images
+                      block.settings.image
                       | image_url: width: 3200
                       | image_tag:
                         widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
@@ -165,7 +165,7 @@ if (document.querySelector('.hotspots-section-custom .hotspots-wrapper')) {
       "settings": [
         {
           "type": "image_picker",
-          "id": "images",
+          "id": "image",
           "label": "Image",
           "info": "Recommended a square ratio for optimal mobile experience"
         },
