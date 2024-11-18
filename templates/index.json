@@ -1056,12 +1056,14 @@
         },
         "product_wUzyaE": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "featured_product": ""
           }
         },
         "product_ydHrD3": {
           "type": "product",
+          "disabled": true,
           "settings": {
             "featured_product": ""
           }
