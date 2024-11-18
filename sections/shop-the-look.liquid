@@ -29,19 +29,23 @@
 
   <div class="hotspots-wrapper shop-the-look_item">
      {% for block in section.blocks %}
-          {% if section.settings.desktop_image != blank %}
+          
             <div class="shop-the-look_image">
-              <img
-                src="{{ section.settings.desktop_image | image_url: width: 1750 }}"
-                alt=""
-                width="100%"
-                height="auto"
-              >
-            </div>
-          {% else %}
-        <p>No image available for this block.</p>
-      {% endif %}
+              {% if block.settings.image != blank %}
+                    {{
+                      block.settings.image
+                      | image_url: width: 3200
+                      | image_tag:
+                        widths: '50, 75, 100, 150, 200, 300, 400, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                        sizes: sizes,
+                        class: 'zoom-card__image'
+                  }}
+               {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'zoom_placeholder-svg' }}
+               {% endif %}
        
+            </div>
+         
 {% endfor %}
 
   </div>
@@ -160,7 +164,7 @@ if (document.querySelector('.hotspots-section-custom .hotspots-wrapper')) {
       "settings": [
         {
           "type": "image_picker",
-          "id": "desktop_image",
+          "id": "image",
           "label": "Image",
           "info": "Recommended a square ratio for optimal mobile experience"
         },
