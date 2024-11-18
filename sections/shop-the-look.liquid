@@ -27,9 +27,23 @@
       {%- endif -%}
     </div>
 
+  <div class="shop-the-look_item">
+      <div class="shop-the-look_image">
+        <img
+          srcset="
+            {%- if section.settings.desktop_image.width >= 750 -%}{{ section.settings.desktop_image | image_url: width: 1500 }} 750w,{%- endif -%}
+            {%- if section.settings.desktop_image.width >= 1070 -%}{{ section.settings.desktop_image | image_url: width: 1600 }} 1070w,{%- endif -%}
+            {%- if section.settings.desktop_image.width >= 1500 -%}{{ section.settings.desktop_image | image_url: width: 2500 }} 1500w,{%- endif -%}
+            {{ section.settings.desktop_image | image_url }} {{ section.settings.desktop_image.width }}w
+          "
+          src="{{ section.settings.desktop_image | image_url: width: 1750 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
+          alt=""
+          width="{{ section.settings.desktop_image.width }}"
+          height="{{ section.settings.desktop_image.height }}"
+        >
+      </div>
 
-  <div>
-    
   </div>
 
     
@@ -106,6 +120,9 @@
       ],
       "default": "body"
     }
+  ],
+  "blocks": [
+    
   ],
    "presets": [
     {
