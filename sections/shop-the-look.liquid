@@ -31,8 +31,8 @@
      {% for block in section.blocks %}
           
     <div class="shop-the-look_image">
-             {% assign img = block.settings.featured_image %}
-             {% if block.settings.featured_image != blank %}
+             {% assign img = block.settings.image %}
+             {% if block.settings.image != blank %}
                     {{
                       img
                       | image_url: width: 3200
@@ -164,7 +164,7 @@ if (document.querySelector('.hotspots-section-custom .hotspots-wrapper')) {
       "settings": [
         {
           "type": "image_picker",
-          "id": "featured_image",
+          "id": "image",
           "label": "Image",
           "info": "Recommended a square ratio for optimal mobile experience"
         },
