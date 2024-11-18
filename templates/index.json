@@ -1054,6 +1054,90 @@
         "show_description": false,
         "description_style": "body"
       }
+    },
+    "featured_product_fzFEfJ": {
+      "type": "featured-product",
+      "blocks": {
+        "text_cKiDVD": {
+          "type": "text",
+          "settings": {
+            "text": "{{ section.settings.product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title_EgdmLD": {
+          "type": "title",
+          "settings": {
+            "heading_size": "h1"
+          }
+        },
+        "sku_6EVzBH": {
+          "type": "sku",
+          "settings": {
+            "text_style": "body"
+          }
+        },
+        "price_CgBNwG": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker_eCKPV6": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector_PgBC8j": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_9Qn9V9": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "text_GjdkcG": {
+          "type": "text",
+          "settings": {
+            "text": "Text block",
+            "text_style": "body"
+          }
+        },
+        "share_xxJjXx": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "text_cKiDVD",
+        "title_EgdmLD",
+        "sku_6EVzBH",
+        "price_CgBNwG",
+        "variant_picker_eCKPV6",
+        "quantity_selector_PgBC8j",
+        "buy_buttons_9Qn9V9",
+        "text_GjdkcG",
+        "share_xxJjXx"
+      ],
+      "settings": {
+        "product": "",
+        "color_scheme": "",
+        "secondary_background": false,
+        "media_size": "medium",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -1076,6 +1160,7 @@
     "image_with_text_TUCUTD",
     "button_blocks_UYRbxM",
     "zoom_cards_6U3GhH",
-    "shop_the_look_regj6m"
+    "shop_the_look_regj6m",
+    "featured_product_fzFEfJ"
   ]
 }
