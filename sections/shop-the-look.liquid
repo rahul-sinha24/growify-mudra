@@ -43,25 +43,19 @@
                         {% else %}
                           {{ 'image' | placeholder_svg_tag: 'zoom_placeholder-svg' }}
                         {% endif %}
-             
            </div>
 
            <div class="shop_product">
              {% render 'card-product',
                 card_product: block.settings.featured_product
+                show
               
               %}
            </div>
-
-      </div>
-
-       
-         
+      </div>         
 {% endfor %}
 
   </div>
-
-    
   </div>
 </div>
 
@@ -94,6 +88,15 @@ if (document.querySelector('.hotspots-section-custom .hotspots-wrapper')) {
 }
   
 </script>
+
+{% style %}
+  
+  .hotspots-wrapper.shop-the-look_item {
+    max-width: 1000px;
+    width: 80%;
+  }
+  
+{% endstyle %}
 
 
 {% schema %}
