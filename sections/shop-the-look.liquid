@@ -29,22 +29,28 @@
 
   <div class="hotspots-wrapper shop-the-look_item">
      {% for block in section.blocks %}
-          
-    <div class="shop-the-look_image" style="width: 100%; max-width: 100%" >
-              {% if block.settings.image != blank %}
-                    {{
-                      block.settings.image
-                      | image_url: width: 3200
-                      | image_tag:
-                        widths: '1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
-                      
-                        class: 'zoom-card__image'
-                    }}
-                  {% else %}
-                    {{ 'image' | placeholder_svg_tag: 'zoom_placeholder-svg' }}
-                  {% endif %}
-       
-     </div>
+       <div class="shop_the_look_block" style="width: 100%; max-width: 100%" >   
+          <div class="shop-the-look_image">
+                    {% if block.settings.image != blank %}
+                          {{
+                            block.settings.image
+                            | image_url: width: 3200
+                            | image_tag:
+                              widths: '1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000, 3200',
+                            
+                              class: 'zoom-card__image'
+                          }}
+                        {% else %}
+                          {{ 'image' | placeholder_svg_tag: 'zoom_placeholder-svg' }}
+                        {% endif %}
+             
+           </div>
+
+           <div class="shop_product">
+             
+           </div>
+
+      </div>
 
        
          
