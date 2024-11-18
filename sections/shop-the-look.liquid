@@ -28,6 +28,7 @@
     </div>
 
   <div class="hotspots-wrapper shop-the-look_item">
+     {% for block in section.blocks %}
       <div class="shop-the-look_image">
         <img
           srcset="
@@ -43,7 +44,7 @@
           height="{{ section.settings.desktop_image.height }}"
         >
       </div>
-
+      {% endfor %}
   </div>
 
     
