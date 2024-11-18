@@ -14,6 +14,8 @@
       "settings": {
         "show_collection_description": true,
         "show_collection_image": true,
+        "desktop_image": "shopify://shop_images/resize_col.jpg",
+        "mobile_image": "shopify://shop_images/THEME_BANNER_2_1_111.jpg",
         "read_nore": false,
         "color_scheme": "scheme-1"
       }
@@ -82,7 +84,7 @@
         "enable_images": true,
         "crop_shape": "circle",
         "card_alignment": "center",
-        "card_text": "rgba(0,0,0,1)",
+        "card_text": "#000000",
         "card_background": "rgba(0,0,0,0)",
         "width": "standard",
         "columns_desktop": 3,
