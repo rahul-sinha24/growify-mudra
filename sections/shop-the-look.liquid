@@ -38,7 +38,7 @@
                             | image_tag:
                               widths: '1000, 1250, 1500, 1750, 2000',
                             
-                              class: ''
+                              class: 'shop-the-look-image'
                           }}
                         {% else %}
                           {{ 'image' | placeholder_svg_tag: 'zoom_placeholder-svg' }}
@@ -95,6 +95,17 @@ if (document.querySelector('.hotspots-section-custom .hotspots-wrapper')) {
     max-width: 1000px;
     width: 80%;
     margin: 0 auto;
+  }
+
+  .shop-the-look-image{
+    height: 100%;
+    left: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
   
   .shop_the_look_block {
