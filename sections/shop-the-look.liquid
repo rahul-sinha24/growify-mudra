@@ -47,7 +47,10 @@
            </div>
 
            <div class="shop_product">
-             
+             {% render 'card-product',
+                card_product: block.settings.featured_product
+              
+              %}
            </div>
 
       </div>
