@@ -639,91 +639,6 @@
         "padding_bottom": 36
       }
     },
-    "featured_product_nY6pm9": {
-      "type": "featured-product",
-      "blocks": {
-        "text_MLRe7c": {
-          "type": "text",
-          "settings": {
-            "text": "{{ section.settings.product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
-        "title_xQia8T": {
-          "type": "title",
-          "settings": {
-            "heading_size": "h1"
-          }
-        },
-        "sku_RNhg8q": {
-          "type": "sku",
-          "settings": {
-            "text_style": "body"
-          }
-        },
-        "price_Ub4wLU": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker_TietXA": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector_Af4XP6": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons_b88LwT": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "text_D4Y3N4": {
-          "type": "text",
-          "settings": {
-            "text": "Text block",
-            "text_style": "body"
-          }
-        },
-        "share_tHWHJE": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
-        }
-      },
-      "block_order": [
-        "text_MLRe7c",
-        "title_xQia8T",
-        "sku_RNhg8q",
-        "price_Ub4wLU",
-        "variant_picker_TietXA",
-        "quantity_selector_Af4XP6",
-        "buy_buttons_b88LwT",
-        "text_D4Y3N4",
-        "share_tHWHJE"
-      ],
-      "disabled": true,
-      "settings": {
-        "product": "",
-        "color_scheme": "",
-        "secondary_background": false,
-        "media_size": "medium",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": false,
-        "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "collection_list_ernpgi": {
       "type": "collection-list",
       "blocks": {
@@ -981,69 +896,6 @@
         "padding_bottom": 36
       }
     },
-    "zoom_cards_6U3GhH": {
-      "type": "zoom-cards",
-      "blocks": {
-        "card_7CNLB9": {
-          "type": "card",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.</p>",
-            "link_label": "",
-            "link": "",
-            "block_color": "#ffffff"
-          }
-        },
-        "card_qXGXxF": {
-          "type": "card",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.</p>",
-            "link_label": "",
-            "link": "",
-            "block_color": "#ffffff"
-          }
-        },
-        "card_RnJqjX": {
-          "type": "card",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.</p>",
-            "link_label": "",
-            "link": "",
-            "block_color": "#ffffff"
-          }
-        },
-        "card_UGnfAg": {
-          "type": "card",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post.</p>",
-            "link_label": "",
-            "link": "",
-            "block_color": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "card_7CNLB9",
-        "card_qXGXxF",
-        "card_RnJqjX",
-        "card_UGnfAg"
-      ],
-      "settings": {
-        "title": "Zoom Cards",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 4,
-        "column_alignment": "left",
-        "color_scheme": "",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "shop_the_look_regj6m": {
       "type": "shop-the-look",
       "blocks": {
@@ -1074,6 +926,7 @@
         "product_qTnnmV",
         "product_pMJDKe"
       ],
+      "disabled": true,
       "settings": {
         "title": "Featured collection",
         "content": "",
@@ -1098,12 +951,10 @@
     "collage_87c8i4",
     "featured_blog_MdWQB9",
     "multirow_AQwJMe",
-    "featured_product_nY6pm9",
     "collection_list_ernpgi",
     "multicolumn_mNYqQH",
     "image_with_text_TUCUTD",
     "button_blocks_UYRbxM",
-    "zoom_cards_6U3GhH",
     "shop_the_look_regj6m"
   ]
 }
