@@ -73,6 +73,7 @@
         "slide_Tx6caY",
         "slide_QPiDAd"
       ],
+      "disabled": true,
       "settings": {
         "slide_height": "medium",
         "show_arrow": false,
@@ -115,6 +116,7 @@
         "text_3mrQWt",
         "button_8Er4rC"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -164,6 +166,7 @@
         "text_dgjNXh",
         "button_6A3qFN"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/resize_col_3.jpg",
         "height": "adapt",
@@ -221,6 +224,7 @@
         "featured_collection_azXnWc",
         "featured_collection_7piY4k"
       ],
+      "disabled": true,
       "settings": {
         "title": "Collections",
         "content": "",
@@ -271,6 +275,7 @@
         "column_fLHAhy",
         "column_4yzzad"
       ],
+      "disabled": true,
       "settings": {
         "title": "Hover Over Large",
         "heading_size": "h1",
@@ -323,6 +328,7 @@
         "text_xF7f3L",
         "text_UTWENH"
       ],
+      "disabled": true,
       "settings": {
         "scrolling_speed": 10,
         "scroll_direction": "left",
@@ -336,6 +342,7 @@
     },
     "featured_collection_HEUnjD": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured collection",
         "content": "",
@@ -398,6 +405,7 @@
         "text_bMJ9fa",
         "button"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/CONTEMRARY_THEME_MOB_1_1_2.jpg",
         "image_2": "shopify://shop_images/resize_col_3.jpg",
@@ -468,6 +476,7 @@
         "card_XPEXLN",
         "card_yjq4YQ"
       ],
+      "disabled": true,
       "settings": {
         "title": "Zoom Cards",
         "heading_size": "h2",
@@ -483,6 +492,7 @@
     },
     "video_xTNjVL": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "heading": "",
         "content": "",
@@ -550,6 +560,7 @@
         "image_d3qpY3",
         "collection_4FYWPY"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Masonry",
         "heading_size": "h1",
@@ -561,6 +572,7 @@
     },
     "featured_blog_MdWQB9": {
       "type": "featured-blog",
+      "disabled": true,
       "settings": {
         "heading": "Blog posts",
         "heading_size": "h1",
@@ -623,6 +635,7 @@
         "row_NFdXAJ",
         "row_eejfdY"
       ],
+      "disabled": true,
       "settings": {
         "image_height": "adapt",
         "desktop_image_width": "medium",
@@ -701,6 +714,7 @@
         "featured_collection_RnbKAE",
         "featured_collection_JaUEhY"
       ],
+      "disabled": true,
       "settings": {
         "title": "Collections",
         "content": "",
@@ -774,6 +788,7 @@
         "column_bJ4Yfh",
         "column_LWVGPB"
       ],
+      "disabled": true,
       "settings": {
         "title": "Multicolumn Blocks",
         "heading_size": "h1",
@@ -831,6 +846,7 @@
         "text_96bWcw",
         "button_DCYgCq"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/resize_col_3.jpg",
         "height": "adapt",
@@ -885,6 +901,7 @@
         "button_nhtWmM",
         "button_PpHqnf"
       ],
+      "disabled": true,
       "settings": {
         "title": "",
         "heading_size": "h1",
@@ -898,6 +915,7 @@
     },
     "featured_collection_RL7W3w": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured collection",
         "content": "",
