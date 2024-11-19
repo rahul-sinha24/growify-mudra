@@ -52,9 +52,16 @@
                         {% endif %}
            </div>
 
-           <div class="shop_product">
+         <div class="hotspots__buttons">
+           <a href="#" class="hotspot__button hotspot__button--product1 dot--{{ block.id }}" data-button="product1">
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-dot" viewBox="0 0 12 12"><circle cx="6" cy="6" r="6" fill="currentColor"/></svg>
+            </a>
+           
+         </div>
+
+           <div class="shop_product" data-block-type="{{ block.type }}" data-hotspot-block="product1">
              {% render 'card-product',
-                card_product: block.settings.featured_product,
+                card_product: block.settings.product1,
                 media_aspect_ratio: section.settings.image_ratio
               
               %}
@@ -96,6 +103,45 @@ if (document.querySelector('.hotspots-section-custom .hotspots-wrapper')) {
 </script>
 
 {% style %}
+
+ {% for block in section.blocks %}
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 {{ section.settings.hotspot_color | color_modify: 'alpha', 0.5 }}; }
+      100% { box-shadow: 0 0 0 10px {{ section.settings.hotspot_color | color_modify: 'alpha', 0 }}; }
+    }
+
+    #shopify-section-{{ section.id }}.hotspots-section-custom .hotspot__button--product1.dot--{{ block.id }} {
+      left: {{ block.settings.horizontal }}%;
+      top: {{ block.settings.vertical }}%;
+      background-color: {{ section.settings.hotspot_color }};
+      animation: pulse 2s infinite;
+    }
+
+    #shopify-section-{{ section.id }}.hotspots-section-custom .hotspot__button--product1.dot--{{ block.id }}:hover {
+      {% if bgBrightness < 125 %}
+        background-color: {{ block.settings.hotspot_color | color_darken: 10 }};
+      {% else %}
+        background-color: {{ block.settings.hotspot_color | color_lighten: 10 }};
+      {% endif %}
+    }
+
+ #shopify-section-{{ section.id }}.hotspots-section-custom .hotspot__button--product2.dot--{{ block.id }} {
+      left: {{ block.settings.horizontal2 }}%;
+      top: {{ block.settings.vertical2 }}%;
+      background-color: {{ section.settings.hotspot_color }};
+      animation: pulse 2s infinite;
+    }
+
+    #shopify-section-{{ section.id }}.hotspots-section-custom .hotspot__button--product2.dot--{{ block.id }}:hover {
+      {% if bgBrightness < 125 %}
+        background-color: {{ block.settings.hotspot_color | color_darken: 10 }};
+      {% else %}
+        background-color: {{ block.settings.hotspot_color | color_lighten: 10 }};
+      {% endif %}
+    }
+  
+  {% endfor %}
+  
 
 @media (min-width: 768px){
   .hotspots-wrapper.shop-the-look_item {
@@ -268,9 +314,14 @@ if (document.querySelector('.hotspots-section-custom .hotspots-wrapper')) {
         },
         {
           "type": "product",
-          "id": "featured_product",
+          "id": "product1",
           "label": "Product"
         },
+        {
+          "type": "product",
+          "id": "product2",
+          "label": "Product 2"
+        }
       ]
     }
     
