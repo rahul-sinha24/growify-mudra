@@ -34,7 +34,7 @@
           <div class="shop-the-look_image" {% if block.settings.image != blank %}
                 style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"
               {% endif %}>
-          <div>
+         
                     {% if block.settings.image != blank %}
                       {%- capture sizes -%}
                         (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
@@ -59,7 +59,7 @@
            </a>
            
          </div>
-      </div>
+      
 
            <div class="shop_product" data-block-type="{{ block.type }}" data-hotspot-block="product1">
              {% render 'card-product',
