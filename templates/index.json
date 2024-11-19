@@ -932,7 +932,7 @@
         "product_TRqbzW": {
           "type": "product",
           "settings": {
-            "image": "shopify://shop_images/D015K908CS_5.jpg",
+            "image": "shopify://shop_images/CONTEMRARY_THEME_MOB_1_1_2.jpg",
             "featured_product": "aafeh-rmnm-13"
           }
         },
@@ -961,7 +961,8 @@
         "heading_size": "h1",
         "description": "",
         "show_description": false,
-        "description_style": "body"
+        "description_style": "body",
+        "image_ratio": "adapt"
       }
     }
   },
