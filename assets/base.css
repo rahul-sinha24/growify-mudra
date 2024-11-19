@@ -3666,3 +3666,7 @@ fieldset.js.product-form__input label.button_variant.color_swatch_round {
   font-weight: 600;
   text-align: center;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
