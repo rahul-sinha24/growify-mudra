@@ -32,12 +32,16 @@
        <div class="shop_the_look_block">   
           <div class="shop-the-look_image">
                     {% if block.settings.image != blank %}
+                      {%- capture sizes -%}
+                        (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
+                        (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
+                      {%- endcapture -%}
                           {{
                             block.settings.image
-                            | image_url: width: 2250
+                            | image_url: width: 3200
                             | image_tag:
                               widths: '1000, 1250, 1500, 1750, 2000',
-                              sizes: 'auto',
+                              sizes: sizes,
                               class: 'shop-the-look-image'
                           }}
                         {% else %}
