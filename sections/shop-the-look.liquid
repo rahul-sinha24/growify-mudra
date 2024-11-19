@@ -55,7 +55,7 @@
            <div class="shop_product">
              {% render 'card-product',
                 card_product: block.settings.featured_product,
-                media_aspect_ratio: block.settings.image_ratio
+                media_aspect_ratio: section.settings.image_ratio
               
               %}
            </div>
@@ -211,7 +211,28 @@ if (document.querySelector('.hotspots-section-custom .hotspots-wrapper')) {
           "label": "t:sections.featured-collection.settings.description_style.options__3.label"
         }
       ],
+      
       "default": "body"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.featured-collection.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.featured-collection.settings.image_ratio.label"
     }
   ],
   "blocks": [
