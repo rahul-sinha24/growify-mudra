@@ -30,11 +30,11 @@
   <div class="hotspots-wrapper shop-the-look_item">
      {% for block in section.blocks %}
        <div class="shop_the_look_block"> 
-         <div>
+         
           <div class="shop-the-look_image" {% if block.settings.image != blank %}
                 style="padding-bottom: {{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;"
               {% endif %}>
-            
+          <div>
                     {% if block.settings.image != blank %}
                       {%- capture sizes -%}
                         (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
