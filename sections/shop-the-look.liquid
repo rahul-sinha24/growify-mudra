@@ -68,29 +68,23 @@
            <div class="shop_product" data-block-container>
             
              <!-- Product 1 -->
-            <div class="hotspot-content__block is-active" data-block-type="{{ block.type }}" data-hotspot-block="product1" {{ block.shopify_attributes }}>
-             {% case block.type %}
-                   {% when 'product' %}
+            <div class="hotspot-content__block is-active" data-block-type="{{ block.type }}" data-hotspot-block="product1" {{ block.shopify_attributes }}>     
                      {% render 'card-product',
                         card_product: block.settings.product1,
                         media_aspect_ratio: section.settings.image_ratio
       
                      %}
-              {% endcase %}
             </div>
             
              
              <!-- End Product -->
              <!-- Product 2 -->
                <div class="hotspot-content__block" data-block-type="{{ block.type }}" data-hotspot-block="product2" {{ block.shopify_attributes }}>
-                {% case block.type %}
-                  {% when 'product' %}
                      {% render 'card-product',
                         card_product: block.settings.product2,
                         media_aspect_ratio: section.settings.image_ratio
                       
                       %}
-                {% endcase %}
                </div>
              <!-- End Product -->
              
@@ -115,10 +109,7 @@
       this.el = this;
       this.buttons = this.querySelectorAll('[data-button]');
       this.hotspotBlocks = this.querySelectorAll('[data-hotspot-block]');
-      this.blockContainer = this.querySelector('[data-block-container]');
-      this.colorImages = this.querySelectorAll('.grid-product__color-image');
-      this.colorSwatches = this.querySelectorAll('.color-swatch--with-image');
-  
+   
       this._bindEvents();
       this._setupQuickShop();
   
