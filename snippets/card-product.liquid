@@ -154,7 +154,7 @@
             >
               {{ card_product.title | escape }}
 
-             {%- if settings.enable_swatches and type == 'horizontal' -%}
+             {%- if settings.enable_swatches -%}
             {%- liquid
               assign swatch_trigger = 'products.general.color_swatch_trigger' | t | downcase
               assign swatch_file_extension = 'png'
