@@ -3679,4 +3679,6 @@ fieldset.js.product-form__input label.button_variant.color_swatch_round {
 a.color-swatch.color-swatch--small {
     width: 30px;
     height: 30px;
+    position: relative;
+    z-index: 9;
 }
