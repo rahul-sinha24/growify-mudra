@@ -163,12 +163,13 @@
               assign color_count = 0
             -%}
 
-            <div class="test_2">
-        
-        </div>
+           
 
 
             {%- for option in product.options_with_values -%}
+               <div class="test_2">
+        testing
+        </div>
               {%- liquid
                 assign option_name = option.name | downcase
                 assign is_color = false
