@@ -157,7 +157,7 @@
          
             </a>
           </h3>
-          <div class="grid-product__colors grid-product__colors--{{ product.id }}">
+          <div class="grid-product__colors grid-product__colors--{{ card_product.id }}">
                 {% for variant in product.variants %}
                   {% assign value = variant.options[option_index] %}
                   {% unless values contains value %}
