@@ -31,7 +31,7 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "swatch_shape": "circle"
+            "swatch_shape": "square"
           }
         },
         "quantity_selector": {
@@ -42,7 +42,8 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": true,
+            "preorder_number": ""
           }
         },
         "description": {
@@ -53,15 +54,6 @@
           "type": "share",
           "settings": {
             "share_label": "Share"
-          }
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "<p>Merchandise are non-refundable.<br/><br/>Disclaimer - The actual print-placement and color of the product may slightly vary slightly from the image shown.</p>",
-            "page": ""
           }
         }
       },
