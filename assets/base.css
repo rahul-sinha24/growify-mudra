@@ -3670,3 +3670,12 @@ fieldset.js.product-form__input label.button_variant.color_swatch_round {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.grid-product__colors {
+    display: flex;
+}
+
+a.color-swatch.color-swatch--small {
+    width: 30px;
+    height: 30px;
+}
