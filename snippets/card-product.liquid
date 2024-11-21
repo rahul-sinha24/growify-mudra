@@ -177,7 +177,7 @@
                   data-variant-id="{{ variant.id }}"
                   data-variant-image="{{ variant.image | img_url: '400x' }}"
                 {% endif %}
-                style="background-image: url({{ color_image }}); background-color: {{ color_swatch_fallback }};">
+                style="background-image: url({{ variant.image | img_url: '400x' }}); background-color: {{ color_swatch_fallback }};">
               </a>
             {%- endunless -%}
            {%- endfor -%}
