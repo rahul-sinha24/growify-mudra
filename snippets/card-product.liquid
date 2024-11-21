@@ -157,21 +157,8 @@
          
             </a>
           </h3>
-          <div class="grid-product__colors grid-product__colors--{{ card_product.id }}">
-               
-                    <a 
-                      href="{{ variant.url | within: collection }}" 
-                      class="color-swatch color-swatch--small color-swatch--{{ value | handle }}{% if variant.image %} color-swatch--with-image{% endif %}" 
-                      data-variant-id="{{ variant.id }}" 
-                      data-variant-image="{{ variant.image | img_url: '400x' }}" 
-                      aria-label="{{ card_product.title | escape }} - {{ value }}" 
-                      style="background-color: {{ color_swatch_fallback }};{% if images[color_file_name] != blank %}  background-image: url({{ color_image }});{% endif %}"
-                      onclick="updateVariant({{ variant.id }}, '{{ variant.image | img_url: '400x' }}')">
-                      <span class="visually-hidden">{{ value }}</span>
-                    </a>
-                 
-              </div>
-
+          
+          {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
           
           <div class="card-information">
             {%- if show_vendor -%}
