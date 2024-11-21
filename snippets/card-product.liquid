@@ -407,3 +407,21 @@
   </div>
 {%- endif -%}
 
+<script>
+
+  function updateVariant(variantId, variantImage) {
+  // Update main image
+  const mainImage = document.querySelector('.product-featured-image');
+  if (mainImage && variantImage) {
+    mainImage.src = variantImage;
+  }
+
+  // Optionally update hidden input or variant selector
+  const variantInput = document.querySelector('input[name="id"]');
+  if (variantInput) {
+    variantInput.value = variantId;
+  }
+}
+
+</script>
+
