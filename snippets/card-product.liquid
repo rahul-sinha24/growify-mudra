@@ -158,8 +158,8 @@
             </a>
           </h3>
           <div class="testing">
-          <div class="grid-product__colors grid-product__colors--{{ product.id }}">
-          {%- for variant in product.variants -%}
+          <div class="grid-product__colors grid-product__colors--{{ card_product.id }}">
+          {%- for variant in card_product.variants -%}
             {%- assign value = variant.options[option_index] %}
             {%- unless values contains value -%}
               {%- assign values = values | join: ',' %}
