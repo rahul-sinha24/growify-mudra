@@ -158,7 +158,12 @@
             </a>
           </h3>
           
-          {% render 'product-variant-options' %}
+          {% render 'product-variant-options',
+            product: product,
+            option: option,
+            block: block
+            picker_type: picker_type
+          %}
           
           <div class="card-information">
             {%- if show_vendor -%}
