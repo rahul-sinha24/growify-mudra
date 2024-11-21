@@ -209,6 +209,8 @@
           </div>
           
           <div class="testing">
+             {%- for option in product.options_with_values -%}
+          {%- assign option_name = option.name | downcase -%}
             {%- if option_name contains 'color' or option_name contains 'colour' -%}
               <div class="grid-product__colors grid-product__colors--{{ card_product.id }}">
                 {%- for variant in card_product.variants -%}
@@ -236,6 +238,7 @@
                  {%- endfor -%}
               </div>
             {% endif %}
+            {% endfor %}
           </div>
         </div>
         {%- if show_quick_add -%}
