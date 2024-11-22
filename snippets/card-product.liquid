@@ -220,10 +220,9 @@
                     {%- assign color_image = value | handle | append: '.' | append: swatch_file_extension | asset_img_url: '50x' | prepend: 'https:' | split: '?' | first -%}
                     {%- assign color_swatch_fallback = value | split: ' ' | last | handle -%}
                     {%- assign color_count = color_count | plus: 1 -%}
-      
                     <a
                       href="{{ variant.url | within: collection }}"
-                      class="color-swatch color-swatch--small color-swatch--{{ value | handle }}{% if variant.image %} color-swatch--with-image{% endif %}"
+                      class="color-swatch color-swatch--small color-swatch--{{ value | handle }}{% if variant.color %} color-swatch--with-image{% endif %}"
                       {% if variant.color %}
                         data-variant-id="{{ variant.id }}"
                         data-variant-image="{{ variant.color| img_url: '400x' }}"
