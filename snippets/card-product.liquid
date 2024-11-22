@@ -209,11 +209,7 @@
           </div>
           
           <div class="testing">
-             {%- for option in product.options_with_values -%}
-              {%- assign option_name = option.name | downcase -%}
-              {%- assign option_index = forloop.index0 -%}
-              {%- assign values = '' -%}   
-            {%- if option_name contains 'color' or option_name contains 'colour' -%}
+            
               <div class="grid-product__colors grid-product__colors--{{ card_product.id }}">
                 {%- for variant in card_product.variants -%}
                   {%- assign value = variant.options[option_index] %}
@@ -239,8 +235,6 @@
                   {%- endunless -%}
                  {%- endfor -%}
               </div>
-            {% endif %}
-            {% endfor %}
           </div>
         </div>
         {%- if show_quick_add -%}
