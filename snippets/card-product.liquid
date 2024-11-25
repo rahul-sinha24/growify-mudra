@@ -245,12 +245,11 @@
               assign color_count = 0
             -%}
 
-            {%- for option in card_product.options_with_values -%}
+            {%- for option in card_product.options -%}
               {%- liquid
                
                 assign is_color = false
                 if option.name contains 'color' or option.name contains 'colour'
-                    
                   assign is_color = true
                 endif
               -%}
