@@ -253,6 +253,9 @@
                   assign is_color = true
                 endif
               -%}
+
+              {{ option.name }}
+              
               {%- if is_color -%}
                 {%- assign option_index = forloop.index0 -%}
                 {%- assign values = '' -%}
