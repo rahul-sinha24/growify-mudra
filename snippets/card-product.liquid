@@ -208,37 +208,9 @@
             {%- endif -%}
           </div>
 
-          {% comment %}
-            <div class="testing">
-              <div class="grid-product__colors grid-product__colors--{{ card_product.id }}">
-                {%- for variant in card_product.variants -%}
-                  {%- assign value = variant.options[option_index] %}
-                  {%- unless values contains value -%}
-                    {%- assign values = values | join: ',' %}
-                    {%- assign values = values | append: ',' | append: value %}
-                    {%- assign values = values | split: ',' %}
-      
-                    {%- assign color_image = value | handle | append: '.' | append: swatch_file_extension | asset_img_url: '50x' | prepend: 'https:' | split: '?' | first -%}
-                    {%- assign color_swatch_fallback = value | split: ' ' | last | handle -%}
-                    {%- assign color_count = color_count | plus: 1 -%}
-                    <a
-                      href="{{ variant.url | within: collection }}"
-                      class="color-swatch color-swatch--small color-swatch--{{ value | handle }}{% if variant.color %} color-swatch--with-image{% endif %}"
-                      {% if variant.color %}
-                        data-variant-id="{{ variant.id }}"
-                        data-variant-image="{{ variant.color| img_url: '400x' }}"
-                      {% endif %}
-                      style="background-image: url({{ variant.image | img_url: '400x' }}); background-color: {{ color_swatch_fallback }};">
-                      
-                    </a>
-                  {%- endunless -%}
-                 {%- endfor -%}
-              </div>
-          </div>
-          {% endcomment %}
 
 
-          <div class="testing">
+          <div class="">
            {%- liquid
               
               assign swatch_file_extension = 'png'
@@ -248,8 +220,9 @@
             {%- for option in card_product.options -%}
               {%- liquid
                
+                assign option_name = option | downcase
                 assign is_color = false
-                if option == 'color' or option == 'colour' or option == 'Color' or option == 'COLOR'
+                if option_name == 'color' or option == 'colour' 
                   assign is_color = true
                 endif
               -%}
