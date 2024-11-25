@@ -249,16 +249,10 @@
               {%- liquid
                
                 assign is_color = false
-                if option == 'color' or option == 'colour'
+                if option == 'color' or option == 'colour' or option == 'Color' or option == 'COLOR'
                   assign is_color = true
                 endif
               -%}
-
-              {% if option == 'color' or option == 'colour' or option == 'Color' or option == 'COLOR' %}
-
-                {{ option }}
-              {% endif %}
-
               
               {%- if is_color -%}
                 {%- assign option_index = forloop.index0 -%}
