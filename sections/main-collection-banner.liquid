@@ -149,7 +149,7 @@
       {% endif %}
     {% endif %}
 
-    <div class="collection-hero__text-wrapper{% if section.settings.content_absolute %}--absolute{% endif %}">
+    <div class="collection-hero__text-wrapper{% if section.settings.over_the_box %}--absolute{% endif %}">
       <h2 class="collection-hero__title">
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
         {{- collection.title | escape -}}
@@ -221,6 +221,12 @@
       "id": "show_collection_description",
       "default": true,
       "label": "t:sections.main-collection-banner.settings.show_collection_description.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "over_the_box",
+      "default": true,
+      "label": "Content over the banner"
     },
     {
       "type": "checkbox",
