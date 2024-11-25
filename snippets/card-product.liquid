@@ -246,9 +246,9 @@
 
             {%- for option in product.options_with_values -%}
               {%- liquid
-                assign option_name = option.name | downcase
+               
                 assign is_color = false
-                if option_name contains == 'color' and option_name contains 'colour'
+                if option.name contains == 'color' and option_name contains 'colour'
                     
                   assign is_color = true
                 endif
