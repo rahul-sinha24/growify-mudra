@@ -212,14 +212,12 @@
 
           <div class="variant_swatch">
            {%- liquid
-              
               assign swatch_file_extension = 'png'
               assign color_count = 0
             -%}
 
             {%- for option in card_product.options -%}
               {%- liquid
-               
                 assign option_name = option | downcase
                 assign is_color = false
                 if option_name == 'color' or option == 'colour' 
