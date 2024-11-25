@@ -3673,7 +3673,7 @@ fieldset.js.product-form__input label.button_variant.color_swatch_round {
 
 .grid-product__colors {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 a.color-swatch.color-swatch--small {
