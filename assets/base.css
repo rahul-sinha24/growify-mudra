@@ -3676,6 +3676,11 @@ fieldset.js.product-form__input label.button_variant.color_swatch_round {
     gap: 1rem;
 }
 
+.variant_swatch span.color-swatch {
+    width: 20px;
+    height: 20px;
+}
+
 a.color-swatch.color-swatch--small {
     width: 30px;
     height: 30px;
