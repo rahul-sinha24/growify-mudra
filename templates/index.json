@@ -1001,6 +1001,15 @@
         "image_ratio": "adapt",
         "hotspot_color": "#f3f3f3"
       }
+    },
+    "custom_liquid_nfTDDg": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
@@ -1022,6 +1031,7 @@
     "image_with_text_TUCUTD",
     "button_blocks_UYRbxM",
     "featured_collection_RL7W3w",
-    "shop_the_look_regj6m"
+    "shop_the_look_regj6m",
+    "custom_liquid_nfTDDg"
   ]
 }
