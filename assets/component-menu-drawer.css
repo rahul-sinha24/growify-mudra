@@ -158,7 +158,8 @@ div#childlink-collections ul.menu-drawer__menu.list-menu {
 }
 
 .menu-drawer summary.menu-drawer__menu-item {
-  padding-right: 5.2rem;
+    padding-right: 3rem;
+    justify-content: space-between;
 }
 
 .no-js .menu-drawer__menu-item .icon-caret {
