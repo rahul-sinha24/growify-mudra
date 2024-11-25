@@ -178,9 +178,8 @@ div#childlink-collections ul.menu-drawer__menu.list-menu {
   background-color: rgba(var(--color-foreground), 0.08);
 }
 
-.js .menu-drawer__menu-item .icon-caret,
-.no-js .menu-drawer .icon-arrow {
-  display: none;
+.js .menu-drawer__menu-item .icon-caret {
+  display: inline-block;
 }
 
 .menu-drawer__menu-item > .icon-arrow {
