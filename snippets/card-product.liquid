@@ -248,7 +248,7 @@
               {%- liquid
                
                 assign is_color = false
-                if option.name contains == 'color' and option_name contains 'colour'
+                if option.name contains 'color' or option.name contains 'colour'
                     
                   assign is_color = true
                 endif
