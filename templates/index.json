@@ -1005,7 +1005,7 @@
     "custom_liquid_nfTDDg": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "",
+        "custom_liquid": "testing",
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 52
