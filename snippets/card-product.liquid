@@ -254,7 +254,11 @@
                 endif
               -%}
 
-              {{ option }}
+              {% if option == 'color' or option == 'colour' %}
+
+                {{ option }}
+              {% endif %}
+
               
               {%- if is_color -%}
                 {%- assign option_index = forloop.index0 -%}
