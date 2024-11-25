@@ -13,7 +13,7 @@
       "type": "main-collection-banner",
       "settings": {
         "show_collection_description": true,
-        "over_the_box": false,
+        "over_the_box": true,
         "show_collection_image": true,
         "desktop_image": "shopify://shop_images/resize_col.jpg",
         "mobile_image": "shopify://shop_images/THEME_BANNER_2_1_111.jpg",
