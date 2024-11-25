@@ -207,8 +207,9 @@
               </div>
             {%- endif -%}
           </div>
-          
-          <div class="testing">
+
+          {% comment %}
+            <div class="testing">
               <div class="grid-product__colors grid-product__colors--{{ card_product.id }}">
                 {%- for variant in card_product.variants -%}
                   {%- assign value = variant.options[option_index] %}
@@ -234,6 +235,8 @@
                  {%- endfor -%}
               </div>
           </div>
+          {% endcomment %}
+          
 
           
         </div>
