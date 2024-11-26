@@ -349,7 +349,7 @@
         "description": "<p>roi</p>",
         "show_description": false,
         "description_style": "body",
-        "text-align": "left",
+        "text-align": "center",
         "collection": "bride",
         "products_to_show": 13,
         "columns_desktop": 4,
