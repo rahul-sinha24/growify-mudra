@@ -110,7 +110,7 @@
         </h2>
       {%- endif -%}
       {% if section.settings.content != blank %}
-        <div>{{ section.settings.content }}</div>
+        <div class="{{ section.settings.text-align }}">{{ section.settings.content }}</div>
       {% endif %}
       {%- if section.settings.description != blank
         or section.settings.show_description
