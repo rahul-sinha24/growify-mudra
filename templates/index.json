@@ -344,7 +344,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "Featured collection",
-        "content": "",
+        "content": "dedgyyu",
         "heading_size": "h1",
         "description": "<p>roi</p>",
         "show_description": false,
@@ -353,7 +353,7 @@
         "products_to_show": 6,
         "columns_desktop": 4,
         "full_width": false,
-        "show_view_all": false,
+        "show_view_all": true,
         "view_all_style": "solid",
         "enable_desktop_slider": true,
         "autoplay": false,
