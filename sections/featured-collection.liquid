@@ -119,7 +119,7 @@
         or section.settings.show_description
         and section.settings.collection.description != empty
       -%}
-        <div class="collection__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %}{% unless section.settings.enable_desktop_slider != blank %} scroll-trigger animate--slide-in{% endunless %}{% endif %} center">
+        <div class="collection__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %}{% unless section.settings.enable_desktop_slider != blank %} scroll-trigger animate--slide-in{% endunless %}{% endif %} {{ section.settings.text-align }}">
           {%- if section.settings.show_description -%}
             {{ section.settings.collection.description }}
           {%- else -%}
@@ -286,6 +286,22 @@
         }
       ],
       "default": "body"
+    },
+    {
+      "type": "select",
+      "id": "text-align",
+      "label": "Text Align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
     },
     {
       "type": "collection",
