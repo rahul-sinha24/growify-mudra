@@ -203,7 +203,7 @@
       </div>
     </div>
 
-   
+    {%- if section.settings.show_view_all and more_in_collection -%}
       <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <a
           href="{{ section.settings.collection.url }}"
@@ -213,7 +213,7 @@
           {{ 'sections.featured_collection.view_all' | t }}
         </a>
       </div>
-   
+    {%- endif -%}
     {% if section.settings.image_shape == 'arch' %}
       {% render 'mask-arch' %}
     {%- endif -%}
