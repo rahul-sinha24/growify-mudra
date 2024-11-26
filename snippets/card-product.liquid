@@ -365,7 +365,7 @@
                         assign color_count = color_count | plus: 1
                       -%}
 
-                      <span
+                       <a href="{{ variant.url | within: collection }}"
                         class="color-swatch color-swatch--small color-swatch--{{ value | handle }}{% if variant.image %} color-swatch--with-image{% endif %}"
                         {% if variant.image %}
                           data-variant-id="{{ variant.id }}"
@@ -374,7 +374,7 @@
                         aria-label="{{ card_product.title }} - {{ value }}"
                         style="background-color: {{ color_swatch_fallback }};{% if images[color_file_name] != blank %}  background-image: url({{ color_image }});{% endif %}">
                         <span class="visually-hidden">{{ value }}</span>
-                      </span>
+                      </a>
                     {%- endunless -%}
                   {%- endfor -%}
                 </div>
