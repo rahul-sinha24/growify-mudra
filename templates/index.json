@@ -356,7 +356,7 @@
         "show_view_all": true,
         "view_all_style": "outline",
         "enable_desktop_slider": true,
-        "autoplay": false,
+        "autoplay": true,
         "zoom_center_product": false,
         "color_scheme": "",
         "image_ratio": "adapt",
