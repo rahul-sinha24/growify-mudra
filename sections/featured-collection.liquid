@@ -103,13 +103,6 @@
  
 {%- endstyle -%}
 
-{%- liquid
-
-  if section.settings.collection.all_products_count > section.settings.products_to_show
-    assign more_in_collection = true
-  endif
-
--%}
 
 <div class="color-{{ section.settings.color_scheme }} isolate gradient">
   <div class="collection section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}">
@@ -203,7 +196,7 @@
       </div>
     </div>
 
-    {%- if section.settings.show_view_all and more_in_collection -%}
+    {%- if section.settings.show_view_all != blank -%}
       <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <a
           href="{{ section.settings.collection.url }}"
