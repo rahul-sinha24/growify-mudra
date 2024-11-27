@@ -537,10 +537,6 @@
         "label": "t:settings_schema.cards.settings.style.label"
       },
       {
-        "type": "header",
-        "content": "t:settings_schema.product_tiles.settings.header_color_swatches"
-      },
-      {
         "type": "checkbox",
         "id": "enable_swatches",
         "label": "t:settings_schema.cards.settings.swatches.label"
