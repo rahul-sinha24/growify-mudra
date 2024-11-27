@@ -488,6 +488,14 @@
 }
 
 
-.variant_swatch {
-  text-align: var(--text-alignment);
+.variant_swatch .left {
+    justify-content: left;
+}
+
+.variant_swatch .center {
+    justify-content: center;
+}
+
+.variant_swatch .right {
+    justify-content: right;
 }
