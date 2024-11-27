@@ -1924,9 +1924,15 @@
           "label": "Show collection image",
           "info": "For best results, use an image with a 16:9 aspect ratio. [Learn more](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
         },
-         "content_over_the_banner": {
+        "content_over_the_banner": {
           "label": "Content over the banner"
-         }
+        },
+        "desktop_image": {
+          "label": "Desktop Image"
+        },
+         "mobile_image": {
+          "label": "Mobile Image"
+        },
       }
     },
     "main-collection-product-grid": {
