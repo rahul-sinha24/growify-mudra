@@ -486,3 +486,8 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
+
+
+.variant_swatch {
+  text-align: var(--text-alignment);
+}
