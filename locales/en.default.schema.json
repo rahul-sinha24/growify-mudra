@@ -64,8 +64,8 @@
           },
           "label": "Style"
         },
-        "swatch": {
-          "label": "Color Swatch"
+        "swatches": {
+          "label": "Enable Color Swatches"
         }
       }
     },
