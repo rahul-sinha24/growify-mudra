@@ -1933,6 +1933,9 @@
          "mobile_image": {
           "label": "Mobile Image"
         },
+        "read_more": {
+            "label": "Read More Button"
+        }
       }
     },
     "main-collection-product-grid": {
