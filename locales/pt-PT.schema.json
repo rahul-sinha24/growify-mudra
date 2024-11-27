@@ -290,6 +290,9 @@
             "label": "Cartão"
           },
           "label": "Estilo"
+        },
+        "swatches": {
+          "label": "Ativar amostras de cores"
         }
       }
     },
