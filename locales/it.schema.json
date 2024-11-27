@@ -293,7 +293,11 @@
             "label": "Scheda"
           },
           "label": "Stile"
+        },
+        "swatches": {
+          "label": "Abilita campioni di colore"
         }
+        
       }
     },
     "collection_cards": {
