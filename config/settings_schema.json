@@ -543,7 +543,7 @@
       {
         "type": "checkbox",
         "id": "enable_swatches",
-        "label": "t:settings_schema.product_tiles.settings.enable_swatches.label"
+        "label": "t:settings_schema.cards.settings.swatches.label"
       },
       {
         "type": "range",
