@@ -1934,7 +1934,8 @@
           "label": "Mobile Image"
         },
         "read_more": {
-            "label": "Read More Button"
+          "label": "Read More Button",
+          "info": "It will show after 4 lines"
         }
       }
     },
