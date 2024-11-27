@@ -293,6 +293,9 @@
             "label": "Carte"
           },
           "label": "Style"
+        },
+        "swatches": {
+          "label": "Activer les échantillons de couleurs"
         }
       }
     },
