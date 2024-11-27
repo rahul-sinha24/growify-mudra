@@ -63,6 +63,9 @@
             "label": "Card"
           },
           "label": "Style"
+        },
+        "swatch": {
+          "label": "Color Swatch"
         }
       }
     },
