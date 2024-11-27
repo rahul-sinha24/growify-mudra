@@ -307,6 +307,9 @@
             "label": "Tarjeta"
           },
           "label": "Estilo"
+        },
+        "swatches": {
+          "label": "Habilitar muestras de color"
         }
       }
     },
