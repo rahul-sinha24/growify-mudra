@@ -228,7 +228,7 @@
                   {%- if is_color -%}
                     {%- assign option_index = forloop.index0 -%}
                     {%- assign values = '' -%}
-                    <div class="grid-product__colors grid-product__colors--{{ card_product.id }}">
+                    <div class="grid-product__colors grid-product__colors--{{ card_product.id }} {% if settings.card_text_alignment == "left" %}left{% elsif settings.card_text_alignment == "center" %}center{% else %}right{% endif %}">
                       {%- for variant in card_product.variants -%}
                         {%- assign value = variant.options[option_index] %}
                         {%- unless values contains value -%}
