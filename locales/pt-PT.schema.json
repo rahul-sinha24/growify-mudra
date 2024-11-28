@@ -1514,6 +1514,19 @@
         "show_collection_image": {
           "label": "Mostrar imagem da coleção",
           "info": "Para obter os melhores resultados, utilize uma imagem com uma proporção de 16:9. [Saber mais](https://help.shopify.com/manual/shopify-admin/productivity-tools/image-editor#understanding-image-aspect-ratio)"
+        },
+         "content_over_the_banner": {
+          "label": "Conteúdo sobre o banner"
+        },
+        "desktop_image": {
+          "label": "Imagem da área de trabalho"
+        },
+         "mobile_image": {
+          "label": "Imagem móvel"
+        },
+        "read_more": {
+          "label": "Read More Button",
+          "info": "Ele aparecerá após 4 linhas"
         }
       }
     },
