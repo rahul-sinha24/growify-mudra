@@ -3545,7 +3545,7 @@ label.field__label {
     padding: 12px 14px;
     margin-bottom: 1rem;
     border: .7px solid #ffffff;
-    box-shadow: 0px 0px 20px #dddddd;
+    box-shadow: 0px 0px 20px #dddddd !important;
 }
 
 .quick-add {
@@ -3687,3 +3687,4 @@ a.color-swatch.color-swatch--small {
     position: relative;
     z-index: 9;
 }
+
