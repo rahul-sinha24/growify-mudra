@@ -96,14 +96,14 @@
 </div>
 
 <script>
-
+  
 document.addEventListener('DOMContentLoaded', () => {
   // Select all hotspot buttons
   const hotspotButtons = document.querySelectorAll('.hotspot__button');
   
   hotspotButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-      event.preventDefault(); // Prevent default anchor behavior
+    const handleInteraction = (event) => {
+      event.preventDefault(); // Prevent default anchor behavior for click events
       
       // Get the target block ID from the button's data attribute
       const targetBlock = button.dataset.button;
@@ -121,9 +121,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (targetContent) {
         targetContent.classList.add('is-active');
       }
-    });
+    };
+
+    // Add event listeners for both click and hover
+    button.addEventListener('click', handleInteraction);
+    button.addEventListener('mouseenter', handleInteraction);
   });
 });
+
   
  
 
