@@ -158,7 +158,9 @@
             playsinline
             autoplay
             muted
-            loop
+            {% if section.settings.enable_video_looping %}
+                loop
+            {% endif %}
           ></video>
         </div>
       {% endif %}
