@@ -156,10 +156,12 @@
             class="video_div"
             src="{{ section.settings.video.sources[0].url }}"
             playsinline
+            {% if section.settings.video_autoplay %}
             autoplay
+            {% endif %}
             muted
             {% if section.settings.enable_video_looping %}
-                loop
+            loop
             {% endif %}
           ></video>
         </div>
