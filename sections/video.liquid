@@ -151,7 +151,12 @@
           {%- endif -%}
         {%- endif -%}
       </template>
-      {% if section.settings.video != blank %}
+      
+    </deferred-media>
+
+    <div class="video-section__media deferred-media no-js-hidden gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      data-media-id="{{ video_id }}">
+    {% if section.settings.video != blank %}
         <div class="desktop_video hide--small">
           {{
             section.settings.video
@@ -181,7 +186,8 @@
           }}
         </div>
       {% endif %}
-    </deferred-media>
+    </div>
+    
 
     {% if section.settings.overlay_content != blank %}
       {%- unless section.settings.heading == blank -%}
