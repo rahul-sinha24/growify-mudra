@@ -275,6 +275,7 @@
         "column_fLHAhy",
         "column_4yzzad"
       ],
+      "disabled": true,
       "settings": {
         "title": "Hover Over Large",
         "heading_size": "h1",
@@ -528,7 +529,7 @@
         "link": "",
         "heading_size": "h0",
         "enable_video_looping": false,
-        "video_autoplay": false,
+        "video_autoplay": true,
         "overlay_content": false,
         "t:sections.video.settings.overlay_content_pos.label": "center_overlay",
         "video": "shopify://files/videos/Desktop.mp4",
