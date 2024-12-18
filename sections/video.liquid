@@ -183,6 +183,41 @@
       {% endif %}
     </deferred-media>
 
+    <div class="video-section__media deferred-media no-js-hidden gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      data-media-id="{{ video_id }}">
+     {% if section.settings.video != blank %}
+        <div class="desktop_video hide--small">
+          {{
+            section.settings.video
+            | video_tag:
+              image_size: '1100x',
+              class: 'video_div',
+              loop: section.settings.enable_video_looping,
+              controls: true,
+              muted: false,
+              autoplay: true,
+              playsinline: true
+          }}
+        </div>
+      {% endif %}
+      {% if section.settings.mobile_video != blank %}
+        <div class="mobile_video hide--lap-up">
+          {{
+            section.settings.mobile_video
+            | video_tag:
+              image_size: '1100x',
+              class: 'video_div',
+              loop: section.settings.enable_video_looping,
+              controls: true,
+              muted: false,
+              autoplay: true,
+              playinline: true
+          }}
+        </div>
+      {% endif %}
+  
+    </div>
+
     {% if section.settings.overlay_content != blank %}
       {%- unless section.settings.heading == blank -%}
         <div class="title-wrapper content_overlay">
