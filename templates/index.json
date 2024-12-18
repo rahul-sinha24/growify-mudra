@@ -342,6 +342,7 @@
     },
     "featured_collection_HEUnjD": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured collection",
         "content": "ggjb",
@@ -373,6 +374,7 @@
     },
     "featured_collection_EKBnCR": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured collection",
         "content": "gjhb",
