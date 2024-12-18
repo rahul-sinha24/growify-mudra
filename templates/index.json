@@ -530,7 +530,7 @@
         "content": "",
         "link": "",
         "heading_size": "h0",
-        "enable_video_looping": true,
+        "enable_video_looping": false,
         "video_autoplay": false,
         "overlay_content": false,
         "t:sections.video.settings.overlay_content_pos.label": "center_overlay",
