@@ -89,7 +89,8 @@
               loop: section.settings.enable_video_looping,
               controls: true,
               muted: false,
-              autoplay: false
+              autoplay: true,
+              loop: true
           }}
         {%- endif -%}
       </div>
@@ -156,13 +157,9 @@
             class="video_div"
             src="{{ section.settings.video.sources[0].url }}"
             playsinline
-            {% if section.settings.video_autoplay %}
             autoplay
-            {% endif %}
             muted
-            {% if section.settings.enable_video_looping %}
             loop
-            {% endif %}
           ></video>
         </div>
       {% endif %}
