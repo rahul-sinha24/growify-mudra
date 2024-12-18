@@ -183,7 +183,7 @@
 
       
      {% if section.settings.video != blank %}
-        <div class="desktop_video hide--small" style="height: {{ desktop_video_height }}%">
+        <div class="desktop_video hide--small" style="padding-bottom: {{ desktop_video_height }}%">
           {{
             section.settings.video
             | video_tag:
@@ -198,7 +198,7 @@
         </div>
       {% endif %}
       {% if section.settings.mobile_video != blank %}
-        <div class="mobile_video hide--lap-up" style="height: {{ mobile_video_height }}%">
+        <div class="mobile_video hide--lap-up" style="padding-bottom: {{ mobile_video_height }}%">
           {{
             section.settings.mobile_video
             | video_tag:
