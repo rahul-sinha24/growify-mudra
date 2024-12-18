@@ -151,12 +151,7 @@
           {%- endif -%}
         {%- endif -%}
       </template>
-      
-    </deferred-media>
-
-    <div class="video-section__media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-      data-media-id="{{ video_id }}">
-    {% if section.settings.video != blank %}
+      {% if section.settings.video != blank %}
         <div class="desktop_video hide--small">
           {{
             section.settings.video
@@ -165,7 +160,7 @@
               class: 'video_div',
               loop: section.settings.enable_video_looping,
               controls: true,
-              muted: true,
+              muted: false,
               autoplay: true,
               playsinline: true
           }}
@@ -186,8 +181,7 @@
           }}
         </div>
       {% endif %}
-    </div>
-    
+    </deferred-media>
 
     {% if section.settings.overlay_content != blank %}
       {%- unless section.settings.heading == blank -%}
