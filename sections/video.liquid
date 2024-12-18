@@ -158,11 +158,11 @@
             | video_tag:
               image_size: '1100x',
               class: 'video_div',
-              loop: true,
+              loop: section.settings.enable_video_looping,
               controls: true,
               muted: false,
               autoplay: true,
-              playinline: true
+              playsinline: true
           }}
         </div>
       {% endif %}
