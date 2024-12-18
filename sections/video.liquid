@@ -96,6 +96,8 @@
       </div>
     </noscript>
     {% assign mobile_video_height = 1 | divided_by: section.settings.mobile_video.aspect_ratio | times: 100 %}
+
+    {%- if section.settings.video != null and section.settings.video_url != null -%}
     <deferred-media
       class="video-section__media deferred-media no-js-hidden gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       data-media-id="{{ video_id }}"
@@ -103,7 +105,7 @@
         style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
       {% endif %}
     >
-       {%- if section.settings.video != null and section.settings.video_url != null -%}
+       
         <button
           id="Deferred-Poster-Modal-{{ video_id }}"
           class="video-section__poster media deferred-media__poster media--landscape"
@@ -123,7 +125,6 @@
             {%- render 'icon-play' -%}
           </span>
         </button>
-      {% endif %}
     
       <template>
         {%- if section.settings.video != null and section.settings.video_url != null -%}
@@ -154,11 +155,34 @@
       </template>
     </deferred-media>
 
+    {% endif %}
+
     <div class="video-section__media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       data-media-id="{{ video_id }}"
       {% if poster != null %}
         style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
       {% endif %}>
+
+      <button
+          id="Deferred-Poster-Modal-{{ video_id }}"
+          class="video-section__poster media deferred-media__poster media--landscape"
+          type="button"
+          aria-label="{{ alt }}"
+        >
+          {%- if poster != null -%}
+            {{
+              poster
+              | image_url: width: 3840
+              | image_tag: sizes: sizes, widths: '375, 750, 1100, 1500, 1780, 2000, 3000, 3840', alt: alt
+            }}
+          {%- else -%}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+          {%- endif -%}
+          <span class="deferred-media__poster-button motion-reduce">
+            {%- render 'icon-play' -%}
+          </span>
+        </button>
+
       
      {% if section.settings.video != blank %}
         <div class="desktop_video hide--small">
