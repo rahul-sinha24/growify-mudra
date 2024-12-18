@@ -531,7 +531,7 @@
         "link": "",
         "heading_size": "h0",
         "enable_video_looping": true,
-        "video_autoplay": true,
+        "video_autoplay": false,
         "overlay_content": false,
         "t:sections.video.settings.overlay_content_pos.label": "center_overlay",
         "video": "shopify://files/videos/Desktop.mp4",
