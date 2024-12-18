@@ -323,6 +323,36 @@
   }
 {% endstyle %}
 
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+  // Select all play buttons
+  const playButtons = document.querySelectorAll('.deferred-media__poster-button');
+
+  playButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      // Find the parent container
+      const parentContainer = button.closest('.video-section__media');
+
+      // Hide the poster
+      const poster = parentContainer.querySelector('.video-section__poster');
+      if (poster) poster.style.display = 'none';
+
+      // Find the appropriate video container (desktop or mobile)
+      const videoContainer = parentContainer.querySelector(
+        window.innerWidth > 768 ? '.desktop_video video' : '.mobile_video video'
+      );
+
+      if (videoContainer) {
+        videoContainer.style.display = 'block'; // Ensure video is visible
+        videoContainer.play(); // Play the video
+      }
+    });
+  });
+});
+
+</script>
+
 {% schema %}
 {
   "name": "t:sections.video.name",
