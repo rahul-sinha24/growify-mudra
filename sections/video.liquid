@@ -200,7 +200,7 @@
         </div>
       {% endif %}
       {% if section.settings.mobile_video != blank %}
-        <div class="mobile_video hide--lap-up">
+        <div class="mobile_video hide--lap-up" style="height: {{ mobile_video_height }}%">
           {{
             section.settings.mobile_video
             | video_tag:
