@@ -531,7 +531,7 @@
         "link": "",
         "heading_size": "h0",
         "enable_video_looping": true,
-        "enable_controls": true,
+        "enable_controls": false,
         "video_autoplay": false,
         "overlay_content": true,
         "overlay_content_pos": "center_overlay",
