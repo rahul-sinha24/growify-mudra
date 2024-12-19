@@ -45,3 +45,7 @@
 .video-section__media.media-fit-cover video {
   object-fit: cover;
 }
+
+.deferred-media__poster {
+    z-index: 1;
+}
