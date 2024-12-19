@@ -237,6 +237,10 @@
             transform: translate(-50%, -50%);
             text-align: center;
           }
+          
+          span.deferred-media__poster-button.motion-reduce {
+               transform: translate(-50%, -150%) scale(1);
+          }
         {% endif %}
         {% if section.settings.overlay_content_pos == "center_left_overlay" %}
           #shopify-section-{{ section.id }}.video_section .video-section .title-wrapper.content_overlay {
