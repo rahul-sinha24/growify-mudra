@@ -211,7 +211,7 @@
 
 {% style %}
 
-      {% if section.settings.overlay_content_pos == 'center_overlay' and section.settings.overlay_content != blank %}
+      {% if section.settings.overlay_content_pos == 'center_overlay' and section.settings.overlay_content == blank %}
           #shopify-section-{{ section.id }}.video_section span.deferred-media__poster-button {
                transform: translate(-50%, -250%) scale(1);
           }
