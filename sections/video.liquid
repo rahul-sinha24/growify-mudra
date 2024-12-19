@@ -95,8 +95,7 @@
         {%- endif -%}
       </div>
     </noscript>
-    {% assign mobile_video_height = 1 | divided_by: section.settings.mobile_video.aspect_ratio | times: 100 %}
-    {% assign desktop_video_height = 1 | divided_by: section.settings.video.aspect_ratio | times: 100 %}
+    
 
     {%- if section.settings.video != null and section.settings.video_url != null -%}
     <deferred-media
@@ -160,6 +159,9 @@
 
     <div class="video-section__media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       data-media-id="{{ video_id }}">
+      
+    {% assign mobile_video_height = 1 | divided_by: section.settings.mobile_video.aspect_ratio | times: 100 %}
+    {% assign desktop_video_height = 1 | divided_by: section.settings.video.aspect_ratio | times: 100 %}
 
       <button
           id="Deferred-Poster-Modal-{{ video_id }}"
