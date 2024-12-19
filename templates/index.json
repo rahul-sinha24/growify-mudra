@@ -533,7 +533,7 @@
         "enable_video_looping": true,
         "enable_controls": true,
         "video_autoplay": true,
-        "overlay_content": true,
+        "overlay_content": false,
         "t:sections.video.settings.overlay_content_pos.label": "center_overlay",
         "video": "shopify://files/videos/9328440-uhd_4096_2160_25fps 2 1920x750 2nd.mp4",
         "mobile_video": "shopify://files/videos/Mobile.mp4",
