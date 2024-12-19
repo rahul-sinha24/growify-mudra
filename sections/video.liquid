@@ -128,7 +128,7 @@
     {% assign mobile_video_height = 1 | divided_by: section.settings.mobile_video.aspect_ratio | times: 100 %}
     {% assign desktop_video_height = 1 | divided_by: section.settings.video.aspect_ratio | times: 100 %}
 
-     {% if section.settings.video_autoplay == null %}
+     {% if section.settings.video_autoplay == blank %}
       <button
           id="Deferred-Poster-Modal-{{ video_id }}"
           class="video-section__poster media deferred-media__poster media--landscape"
