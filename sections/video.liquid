@@ -62,7 +62,7 @@
     
     
 
-    {%- if section.settings.video != null and section.settings.video_url != null -%}
+    {%- if section.settings.video == null and section.settings.video_url != null -%}
     <deferred-media
       class="video-section__media deferred-media no-js-hidden gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       data-media-id="{{ video_id }}"
