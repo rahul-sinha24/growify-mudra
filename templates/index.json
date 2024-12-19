@@ -526,13 +526,13 @@
     "video_xTNjVL": {
       "type": "video",
       "settings": {
-        "heading": "",
+        "heading": "uhijkjkm",
         "content": "",
         "link": "",
         "heading_size": "h0",
         "enable_video_looping": false,
         "video_autoplay": false,
-        "overlay_content": false,
+        "overlay_content": true,
         "t:sections.video.settings.overlay_content_pos.label": "center_overlay",
         "video": "shopify://files/videos/9328440-uhd_4096_2160_25fps 2 1920x750 2nd.mp4",
         "mobile_video": "shopify://files/videos/Mobile.mp4",
@@ -540,8 +540,8 @@
         "description": "",
         "full_width": false,
         "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 8
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "collage_87c8i4": {
