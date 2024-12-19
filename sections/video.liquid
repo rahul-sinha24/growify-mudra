@@ -59,42 +59,7 @@
         </div>
       {%- endunless -%}
     </div>
-    <noscript>
-      <div
-        class="video-section__media"
-        {% if poster != null %}
-          style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
-        {% endif %}
-      >
-        {%- if section.settings.video == null and section.settings.video_url != null -%}
-          <a
-            href="{{ section.settings.video_url }}"
-            class="video-section__poster media media--transparent{% if poster == null %} video-section__placeholder{% endif %}"
-          >
-            {%- if poster != null -%}
-              {{
-                poster
-                | image_url: width: 3840
-                | image_tag: sizes: sizes, widths: '375, 750, 1100, 1500, 1780, 2000, 3000, 3840', alt: alt
-              }}
-            {%- else -%}
-              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-            {%- endif -%}
-          </a>
-        {%- else -%}
-          {{
-            section.settings.video
-            | video_tag:
-              image_size: '1100x',
-              loop: section.settings.enable_video_looping,
-              controls: true,
-              muted: false,
-              autoplay: true,
-              loop: true
-          }}
-        {%- endif -%}
-      </div>
-    </noscript>
+    
     
 
     {%- if section.settings.video != null and section.settings.video_url != null -%}
