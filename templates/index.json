@@ -536,6 +536,7 @@
         "overlay_content": false,
         "overlay_content_pos": "center_overlay",
         "video_url": "https://www.youtube.com/watch?v=SC4xMk98Pdc",
+        "cover_image": "shopify://shop_images/resize_col.jpg",
         "description": "",
         "full_width": false,
         "color_scheme": "",
