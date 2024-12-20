@@ -1,6 +1,7 @@
 {{ 'video-section.css' | asset_url | stylesheet_tag }}
 {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
 
+{% assign poster = section.settings.video.preview_image | default: section.settings.cover_image %}
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -16,7 +17,7 @@
 
 .section-{{ section.id }}.video-section__media {
   position: relative;
-  padding-bottom: {{ 1 | divided_by: section.settings.poster.aspect_ratio | times: 100 }}%;
+  padding-bottom: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;
 }
   
 {%- endstyle -%}
