@@ -20,7 +20,7 @@
 
 #shopify-section-{{ section.id }} .video-section__media {
   position: relative;
-  {% if section.settings.video_url != blank %}
+  {% if section.settings.video_url != blank or ytposter == blank %}
     padding-bottom: {{ 100 | divided_by: ytposter.aspect_ratio }}%;
     {% else %}
     padding-bottom: {{ 100 | divided_by: poster.aspect_ratio }}%;
