@@ -65,7 +65,7 @@
     {%- if section.settings.video == null and section.settings.video_url != blank -%}
     <deferred-media
       class="video-section__media deferred-media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-      data-media-id="{{ video_id }}" 
+      data-media-id="{{ video_id }}" style="{% if section.settings.video_url != blank %}padding-bottom: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%{% endif %};"
       {% if poster != null %}
         style="padding-bottom: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;"
       {% endif %}
