@@ -1,7 +1,10 @@
 {{ 'video-section.css' | asset_url | stylesheet_tag }}
 {{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
 
+<!-- Video Poster Variable -->
 {% assign poster = section.settings.video.preview_image | default: section.settings.cover_image %}
+{% assign ytposter = section.settings.video_url.preview_image | default: section.settings.cover_image %}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -17,7 +20,7 @@
 
 #shopify-section-{{ section.id }} .video-section__media {
   position: relative;
-  padding-bottom: {{ 100 | divided_by: poster.aspect_ratio }}%;
+  padding-bottom: {{ 100 | divided_by: ytposter.aspect_ratio }}%;
 }
   
 {%- endstyle -%}
