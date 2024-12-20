@@ -69,7 +69,8 @@
     
     
 
-    {%- if section.settings.video == blank and section.settings.video_url != blank -%}
+    {%- if section.settings.video_url != blank and section.settings.video == blank -%}
+    <!-- Youtube, Vimeo Section -->
     <deferred-media
       class="video-section__media deferred-media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       data-media-id="{{ video_id }}" style=""
@@ -130,6 +131,8 @@
 
     {% endif %}
 
+    {% if section.settings.video != blank and section.settings.mobile_video != blank %}
+    <!-- Mp4 video section -->
     <div class="video-section__media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       data-media-id="{{ video_id }}">
       
@@ -192,17 +195,19 @@
   
     
     </div>
-
-    {% if section.settings.overlay_content != blank %}
-      {%- unless section.settings.heading == blank -%}
-        <div class="title-wrapper content_overlay">
-          <h2 class="title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
-          {% if section.settings.content != blank %}
-            <div class="rte">{{ section.settings.content }}</div>
-          {% endif %}
-        </div>
-      {%- endunless -%}
     {% endif %}
+
+      {% if section.settings.overlay_content != blank %}
+        <!-- Video Content Div -->
+        {%- unless section.settings.heading == blank -%}
+          <div class="title-wrapper content_overlay">
+            <h2 class="title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+            {% if section.settings.content != blank %}
+              <div class="rte">{{ section.settings.content }}</div>
+            {% endif %}
+          </div>
+        {%- endunless -%}
+      {% endif %}
   </div>
   {%- if section.settings.link != blank -%}
     <a
