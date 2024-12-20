@@ -66,12 +66,31 @@
             "color_scheme": "scheme-1",
             "text_alignment_mobile": "center"
           }
+        },
+        "slide_n9N9H8": {
+          "type": "slide",
+          "settings": {
+            "video_url": "",
+            "video_url_mobile": "",
+            "heading": "Image slide Mudra",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Shop Now",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "bottom-right",
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
         }
       },
       "block_order": [
         "slide_cNrQKQ",
         "slide_Tx6caY",
-        "slide_QPiDAd"
+        "slide_QPiDAd",
+        "slide_n9N9H8"
       ],
       "disabled": true,
       "settings": {
@@ -532,10 +551,11 @@
         "heading_size": "h0",
         "enable_video_looping": true,
         "enable_controls": false,
-        "video_autoplay": false,
+        "video_autoplay": true,
         "overlay_content": false,
         "overlay_content_pos": "center_overlay",
         "video_url": "https://www.youtube.com/watch?v=SC4xMk98Pdc",
+        "cover_image": "shopify://shop_images/resize_col.jpg",
         "description": "",
         "full_width": false,
         "color_scheme": "",
