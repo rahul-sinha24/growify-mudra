@@ -22,8 +22,6 @@
   position: relative;
   {% if section.settings.video_url != blank %}
     padding-bottom: {{ 100 | divided_by: ytposter.aspect_ratio }}%;
-    {% elsif ytposter == blank %}
-    height: 500px;
     {% else %}
     padding-bottom: {{ 100 | divided_by: poster.aspect_ratio }}%;
   {% endif %}
