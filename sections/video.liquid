@@ -25,6 +25,9 @@
     {% else %}
     padding-bottom: {{ 100 | divided_by: poster.aspect_ratio }}%;
   {% endif %}
+  {% if ytposter == blank or poster == blank %}
+    padding-bottom: 56%;
+  {% endif %}
 }
   
 {%- endstyle -%}
