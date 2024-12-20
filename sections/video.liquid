@@ -94,7 +94,7 @@
           type="button"
           aria-label="{{ alt }}"
         >
-          {%- if poster != blank -%}
+          {%- if ytposter -%}
             {{
               poster
               | image_url: width: 3840
@@ -137,7 +137,7 @@
         {%- endif -%}
       </template>
     </deferred-media>
-
+      
     {% endif %}
 
     {% if section.settings.video != blank and section.settings.mobile_video != blank %}
