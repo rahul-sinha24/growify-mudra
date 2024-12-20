@@ -47,6 +47,8 @@
 
 <div class="color-{{ section.settings.color_scheme }} gradient main_video--section">
   <div class="video-section isolate{% if section.settings.full_width != blank %} full-width {% endif %}{% unless section.settings.full_width %} page-width{% endunless %} section-{{ section.id }}-padding">
+    
+    <!-- Section Title -->
     <div
       {% if section.settings.full_width %}
         class="page-width"
