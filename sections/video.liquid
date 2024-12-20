@@ -101,9 +101,7 @@
               | image_tag: sizes: sizes, widths: '375, 750, 1100, 1500, 1780, 2000, 3000, 3840', alt: alt
             }}
           {%- else -%}
-            <div class="no_poster" style="padding-bottom: 56%;">
             {{ 'hero-apparel-3' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-            </div>
           {%- endif -%}
           <span class="deferred-media__poster-button motion-reduce">
             {%- render 'icon-play' -%}
