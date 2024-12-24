@@ -1,66 +1,3 @@
-theme.cart = {
-  getCart: function() {
-    const url = `${theme.routes.cart}?t=${Date.now()}`;
-    return fetch(url, { credentials: 'same-origin', method: 'GET' }).then(response => response.json());
-  },
-
-  getCartProductMarkup: function() {
-    const url = `${theme.routes.cartPage}?t=${Date.now()}&view=ajax`;
-    return fetch(url, { credentials: 'same-origin', method: 'GET' }).then(response => response.text());
-  },
-
-  changeItem: function(key, qty) {
-    return this._updateCart({
-      url: `${theme.routes.cartChange}?t=${Date.now()}`,
-      data: JSON.stringify({ id: key, quantity: qty })
-    });
-  },
-
-  _updateCart: function(params) {
-    return fetch(params.url, {
-      method: 'POST',
-      body: params.data,
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest'
-      }
-    })
-      .then(response => response.json())
-      .then(cart => cart);
-  },
-
-  updateAttribute: function(key, value) {
-    return this._updateCart({
-      url: '/cart/update.js',
-      data: JSON.stringify({ attributes: { [key]: this.attributeToString(value) } })
-    });
-  },
-
-  updateNote: function(note) {
-    return this._updateCart({
-      url: '/cart/update.js',
-      data: JSON.stringify({ note: this.attributeToString(note) })
-    });
-  },
-
-  attributeToString: function(attribute) {
-    return (typeof attribute !== 'string' ? `${attribute}` : attribute || '').trim();
-  }
-};
-
-class CartRemoveButton extends HTMLElement {
-  constructor() {
-    super();
-    this.addEventListener('click', (event) => {
-      event.preventDefault();
-      const cartItems = this.closest('cart-items') || this.closest('cart-drawer-items');
-      cartItems.updateQuantity(this.dataset.index, 0);
-    });
-  }
-}
-customElements.define('cart-remove-button', CartRemoveButton);
-
 class CartItems extends HTMLElement {
   constructor() {
     super();
@@ -120,7 +57,33 @@ class CartItems extends HTMLElement {
     event.target.setCustomValidity('');
   }
 
+  enableLoading(line) {
+    const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
+    mainCartItems.classList.add('cart__items--disabled');
+
+    const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading__spinner`);
+    const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading__spinner`);
+
+    [...cartItemElements, ...cartDrawerItemElements].forEach((overlay) => overlay.classList.remove('hidden'));
+
+    document.activeElement.blur();
+    this.lineItemStatusElement.setAttribute('aria-hidden', false);
+  }
+
+  disableLoading(line) {
+    const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
+    mainCartItems.classList.remove('cart__items--disabled');
+
+    const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading__spinner`);
+    const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading__spinner`);
+
+    cartItemElements.forEach((overlay) => overlay.classList.add('hidden'));
+    cartDrawerItemElements.forEach((overlay) => overlay.classList.add('hidden'));
+  }
+
   updateQuantity(line, quantity, name, variantId) {
+    this.enableLoading(line);
+
     const body = JSON.stringify({
       line,
       quantity,
@@ -130,11 +93,56 @@ class CartItems extends HTMLElement {
 
     fetch(`${routes.cart_change_url}`, { ...fetchConfig(), body })
       .then(response => response.json())
-      .then(parsedState => this.handleCartUpdate(parsedState, line, name, variantId))
+      .then(parsedState => {
+        this.disableLoading(line);
+        this.handleCartUpdate(parsedState, line, name, variantId);
+      })
       .catch(() => {
+        this.disableLoading(line);
         const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
         errors.textContent = window.cartStrings.error;
       });
+  }
+
+  onChange(event) {
+    this.updateQuantity(
+      event.target.dataset.index,
+      event.target.value,
+      document.activeElement.getAttribute('name'),
+      event.target.dataset.quantityVariantId
+    );
+  }
+
+  onCartUpdate() {
+    if (this.tagName === 'CART-DRAWER-ITEMS') {
+      fetch(`${routes.cart_url}?section_id=cart-drawer`)
+        .then((response) => response.text())
+        .then((responseText) => {
+          const html = new DOMParser().parseFromString(responseText, 'text/html');
+          const selectors = ['cart-drawer-items', '.cart-drawer__footer'];
+          for (const selector of selectors) {
+            const targetElement = document.querySelector(selector);
+            const sourceElement = html.querySelector(selector);
+            if (targetElement && sourceElement) {
+              targetElement.replaceWith(sourceElement);
+            }
+          }
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    } else {
+      fetch(`${routes.cart_url}?section_id=main-cart-items`)
+        .then((response) => response.text())
+        .then((responseText) => {
+          const html = new DOMParser().parseFromString(responseText, 'text/html');
+          const sourceQty = html.querySelector('cart-items');
+          this.innerHTML = sourceQty.innerHTML;
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+    }
   }
 
   handleCartUpdate(parsedState, line, name, variantId) {
