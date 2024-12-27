@@ -145,6 +145,10 @@ class CartItems extends HTMLElement {
     publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId });
   }
 
+  onChange(event) {
+    this.validateQuantity(event);
+  }
+
   onCartUpdate() {
     if (this.tagName === 'CART-DRAWER-ITEMS') {
       fetch(`${routes.cart_url}?section_id=cart-drawer`)
