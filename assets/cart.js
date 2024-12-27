@@ -128,14 +128,12 @@ class CartItems extends HTMLElement {
       sections_url: window.location.pathname
     });
 
-     fetch(`${routes.cart_change_url}`, { ...fetchConfig(), body })
+    fetch(`${routes.cart_change_url}`, { ...fetchConfig(), body })
       .then(response => response.json())
-      .then(parsedState => {
-        console.log("Cart state after update:", parsedState); // Debugging log
-        this.handleCartUpdate(parsedState);
-      })
-      .catch(error => {
-        console.error("Error updating cart:", error); // Debugging log
+      .then(parsedState => this.handleCartUpdate(parsedState, line, name, variantId))
+      .catch(() => {
+        const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
+        errors.textContent = window.cartStrings.error;
       });
   }
 
@@ -144,20 +142,10 @@ class CartItems extends HTMLElement {
       this.updateLiveRegions(line, parsedState.errors);
       return;
     }
-
-    // Explicitly update prices in the UI
-    const updatedPriceElement = this.querySelector(`#Price-${line}`);
-    if (updatedPriceElement) {
-      updatedPriceElement.textContent = parsedState.items[line - 1]?.final_line_price || 'Error';
-    }
-
-    const updatedTotalPrice = document.querySelector('.cart-total-price');
-    if (updatedTotalPrice) {
-      updatedTotalPrice.textContent = parsedState.total_price || 'Error';
-    }
-
     publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId });
   }
+
+  
 
   onCartUpdate() {
     if (this.tagName === 'CART-DRAWER-ITEMS') {
