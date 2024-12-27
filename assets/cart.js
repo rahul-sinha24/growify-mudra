@@ -128,12 +128,14 @@ class CartItems extends HTMLElement {
       sections_url: window.location.pathname
     });
 
-    fetch(`${routes.cart_change_url}`, { ...fetchConfig(), body })
+     fetch(`${routes.cart_change_url}`, { ...fetchConfig(), body })
       .then(response => response.json())
-      .then(parsedState => this.handleCartUpdate(parsedState, line, name, variantId))
-      .catch(() => {
-        const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
-        errors.textContent = window.cartStrings.error;
+      .then(parsedState => {
+        console.log("Cart state after update:", parsedState); // Debugging log
+        this.handleCartUpdate(parsedState);
+      })
+      .catch(error => {
+        console.error("Error updating cart:", error); // Debugging log
       });
   }
 
