@@ -142,11 +142,19 @@ class CartItems extends HTMLElement {
       this.updateLiveRegions(line, parsedState.errors);
       return;
     }
-    publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId });
-  }
 
-  onChange(event) {
-    this.validateQuantity(event);
+    // Explicitly update prices in the UI
+    const updatedPriceElement = this.querySelector(`#Price-${line}`);
+    if (updatedPriceElement) {
+      updatedPriceElement.textContent = parsedState.items[line - 1]?.final_line_price || 'Error';
+    }
+
+    const updatedTotalPrice = document.querySelector('.cart-total-price');
+    if (updatedTotalPrice) {
+      updatedTotalPrice.textContent = parsedState.total_price || 'Error';
+    }
+
+    publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: parsedState, variantId });
   }
 
   onCartUpdate() {
